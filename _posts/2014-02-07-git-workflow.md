@@ -8,13 +8,19 @@ description: git workflow
 ---
 
 ###master
+
+```
     1) git pull origin master
     2) git checkout -b weekly-news
         -> weekly-news
         ...
     9) git pull origin master
     10)git merge --no-ff weekly-news
+```
+
 ###weekly-news
+
+```
     3) git fetch origin
     4) git rebase origin/master
     5) git rebase origin/weekly-news
@@ -22,3 +28,4 @@ description: git workflow
     7) git rebase -i origin/master
     8) git checkout master
         -> master
+```
