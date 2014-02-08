@@ -6,7 +6,14 @@ tags: programming
 description:
 ---
 
-{% highlight ruby %}
-	#!/usr/bin/env ruby
-	puts "Hello, World!!"
-{% endhighlight %}
+```
+	package main
+
+	import "fmt"
+
+	// This is a comment
+
+	func main() {
+		fmt.Println("Hello, w0rld!!!")
+	}
+```
