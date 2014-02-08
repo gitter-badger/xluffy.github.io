@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Simple git 
+title: Simple git branching model
 author: xluffy
 date:   2014-02-07
 tags: git, system, develop
@@ -10,19 +10,18 @@ description: git workflow
 
 # a **simple** git branching model
 
-This is a very simple git workflow. It (and variants) is in use by many people.
-I settled on it after using it very effectively at [Athena](http://athena.ai).
-[GitHub](https://github.com) does something similar; Zach Holman mentioned  it
-in [this talk](http://www.youtube.com/watch?v=qyz3jkOBbQY&t=09m12s).
+Đây là một workflow rất đơn giản khi sử dụng git. Nó (và các biến thể) được sử 
+dụng bởi rất nhiều người. Tôi đã chọn nó sau khi sử dụng nó rất hiệu quả tại
+[Athena](http://athena.ai). [GitHub](https://github.com) cũng làm điều gì đó tương
+tự; Zach Holman đề cập đến nó trong [this talk](http://www.youtube.com/watch?v=qyz3jkOBbQY&t=09m12s).
 
+### Các ý chính
 
-### The gist
+1. `master` phải luôn luôn ở trạng thái sẵn sàng deploy.
+1. **tất cả thay đổi** phải được thực hiện trên feature branches (pull-request + merge)
+1. rebase để tránh/giải quyết các xung đột; và merge vào `master`
 
-1. `master` must always be deployable.
-1. **all changes** made through feature branches (pull-request + merge)
-1. rebase to avoid/resolve conflicts; merge in to `master`
-
-Or, as Zach Holman succinctly put it:
+Hoặc, như Zach Holman đã giải thích ngắn gọn tại:
 
 ![flow](http://static.benet.ai/skitch/flow-20130926-193419.png)
 
