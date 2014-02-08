@@ -42,7 +42,7 @@ thì quá chán, nặng nề, lằng nhằng và nhiều đam mỹ :3.
 ### Còn gì khác nữa không?
 
 - Jekyll chỉ là một trong số nhiều static site generator và được viết bằng Ruby. Ngoài Jekyll ra còn có nanoc cũng viết bằng Ruby hay Pelican được viết bằng Python
-- Thử search với từ khóa __static site generator__ bạn sẽ có rất nhiều kết quả và nhiều sự lựa chọn hoặc xem ở https://wiki.python.org/moin/StaticSiteGenerator
+- Thử search với từ khóa __static site generator__ bạn sẽ có rất nhiều kết quả và nhiều sự lựa chọn hoặc xem ở [đây] (https://wiki.python.org/moin/StaticSiteGenerator)
 
 ###Step 1: Tạo một repo trên GitHub
 
