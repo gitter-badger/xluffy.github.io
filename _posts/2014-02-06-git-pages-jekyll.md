@@ -7,7 +7,7 @@ tags: tips
 description: "Huong dan tao blog cho n~ ke ngheo"
 ---
 
-###What? 
+### What? 
 Bài này hướng dẫn cách tạo blog cho những kẻ nghèo và không có tiền.
 
 ###Who?
@@ -15,11 +15,11 @@ Ai cũng có thể làm theo được, nhưng tốt nhất là nên biết một
 
 ###Why?
 
-####Tại sao lại là git pages?
+#### Tại sao lại là git pages?
 
 Ờ thì đơn giản là không có tiền thuê VPS hay hosting, nhưng lại muốn viết cái gì đó vừa để học, để chơi, để nghịch shit.
 
-####Thế tại sao không tạo blogspot, wordpress hay bất cứ cái gì mà cứ phải là cái này?
+#### Thế tại sao không tạo blogspot, wordpress hay bất cứ cái gì mà cứ phải là cái này?
 
 Trả lời ngắn: Vì thích thế :v
 
@@ -44,14 +44,14 @@ thì quá chán, nặng nề, lằng nhằng và nhiều đam mỹ :3.
 - Jekyll chỉ là một trong số nhiều static site generator và được viết bằng Ruby. Ngoài Jekyll ra còn có nanoc cũng viết bằng Ruby hay Pelican được viết bằng Python
 - Thử search với từ khóa __static site generator__ bạn sẽ có rất nhiều kết quả và nhiều sự lựa chọn hoặc xem ở [đây] (https://wiki.python.org/moin/StaticSiteGenerator)
 
-###Step 1: Tạo một repo trên GitHub
+### Step 1: Tạo một repo trên GitHub
 
 Nếu bạn đã có tài khoản GitHub thì bạn có thể đăng nhập và tạo một repository mới với tên dạng __*xluffy.github.io*__, trong đó
 _xluffy_ là tên của bạn (hoặc tên tổ chức) trên GitHub
 
 Nếu phần đầu tiên của repos không chính xác với tên đăng nhập GitHub của bạn, nó sẽ không làm việc, vì vậy hay đảm bảo nó chính xác.
 
-###Step 2: Tạo Pages với __automatic generator__
+### Step 2: Tạo Pages với __automatic generator__
 
 1. Vào phần __Setting__ của repository mà bạn vừa tạo ra.
 2. Click vào nút __Automatic Page Generator__
@@ -60,7 +60,7 @@ Nếu phần đầu tiên của repos không chính xác với tên đăng nhậ
 5. Xem trước phần themes của bạn.
 6. Khi đã tìm thấy theme bạn thích, click __Publish__.
 
-###Step 3: Clone repository về máy bạn.
+### Step 3: Clone repository về máy bạn.
 
 Lưu ý là sau khi thực hiện xong step 2, bạn sẽ thấy một vài file được tạo ra, đó là theme mà GitHub Page tạo ra. Bạn 
 có thể sử dụng nó nếu thích, tuy nhiên ở đây ta sẽ sử dụng Jekyll để build và tạo ra layout cho blog của mình.
@@ -75,13 +75,13 @@ Tới thư mục mà bạn muốn đặt mã nguồn blog, và clone nó về.
 	// chi giu lai .git/
 ```
 
-###Step 4: Cài đặt Jekyll
+### Step 4: Cài đặt Jekyll
 
 ```
 	~ $ sudo gem install jekyll
 ```
 
-###Step 5: Tạo layout và push lại lên kho chứa
+### Step 5: Tạo layout và push lại lên kho chứa
 
 ```
 	~ $ jekyll new ~/xluffy.github.io 
@@ -94,7 +94,7 @@ Tới thư mục mà bạn muốn đặt mã nguồn blog, và clone nó về.
 Kiểm tra blog tại địa chỉ http://localhost:4000 hoặc http://127.0.0.1:4000
 
 
-###Step 6: Chỉnh sửa config và viết bài đầu tiên
+### Step 6: Chỉnh sửa config và viết bài đầu tiên
 	
 ```
 	~ $ cd xluffy.github.io
@@ -106,7 +106,7 @@ Kiểm tra blog tại địa chỉ http://localhost:4000 hoặc http://127.0.0.1
 		" _posts/2014-02-06-hello-world.m
 ```
 
-###Step 7: Biên dịch mã markdown thành html
+### Step 7: Biên dịch mã markdown thành html
 
 ```
 	~ $ cd xluffy.github.io

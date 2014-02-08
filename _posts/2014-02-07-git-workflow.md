@@ -7,7 +7,7 @@ tags: git, system, develop
 description: git workflow
 ---
 
-###master
+### master
 
 ```
     1) git pull origin master
@@ -18,7 +18,7 @@ description: git workflow
     10)git merge --no-ff weekly-news
 ```
 
-###weekly-news
+### weekly-news
 
 ```
     3) git fetch origin
