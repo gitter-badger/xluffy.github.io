@@ -1,11 +1,13 @@
+---
 layout: post
 title:  "Tạo môi trường làm việc ảo với virtualenv"
+author: xluffy
 date:   2014-02-10
-tags: programming
-description: Tạo môi trường làm việc ảo với virtualenv
+tags: virtualenv, python
+description: "Tạo môi trường làm việc ảo với virtualenv"
 ---
 
-Tạo môi trường làm việc ảo với virtualenv
+### Tạo môi trường làm việc ảo với virtualenv
 
 Virtualenv là một công cụ để xây dựng môi trường độc lập khi phát triển với Python. 
 Đó là một cách tuyệt vời để nhanh chóng kiểm tra các thư viện mới mà không làm lộn xộn 
