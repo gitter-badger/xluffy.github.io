@@ -48,7 +48,9 @@ __Ưu điểm của cả 2 cách trên__ là PHP module được sinh ra sẽ nh
 và tiết kiệm RAM hơn.
 
 __Tổng kết:__ Dù biên dịch static hay dynamic thì cơ chế xử lý của PHP trong mod_php là như nhau. Nghĩa là khi có request tới thì
+
 sẽ vẫn đá qua module PHP để xử lý (tương tự như cách xử lý ở các module khác). Điều khác biệt chỉ ở lần thực thi script PHP đầu tiên (static thì 
+
 load sẵn, dynamic thì khi có request đầu tiên mới load) tuy nhiên ở những lần thực thi sau thì cả 2 đều như nhau, không cần phải load
 lại module PHP nữa.
 
