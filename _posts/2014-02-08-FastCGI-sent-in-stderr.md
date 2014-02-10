@@ -35,3 +35,5 @@ or
 
 `fastcgi_param SCRIPT_FILENAME /usr/share/nginx/html$fastcgi_script_name;`
 
+
+
