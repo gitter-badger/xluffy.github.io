@@ -9,7 +9,7 @@ description: So sánh các cách sử dụng PHP cùng với web service
 
 ### Sơ lược:
 
-Về cơ bản với Web server là Apache ta có thể có 3 cách biên dịch và thực thi các mã *.php như sau:
+Về cơ bản với Web server là Apache ta có thể có 3 cách biên dịch và thực thi các mã .php như sau:
 
 - Biên dịch PHP như một static module của Apache.
 - Biên dịch PHP như một dynamic module của Apache.
