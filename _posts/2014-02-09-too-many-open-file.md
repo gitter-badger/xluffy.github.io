@@ -33,7 +33,9 @@ Open /etc/pam.d/common-session
 
 Add following line:
 
-session required pam_limits.so
+```
+	session required pam_limits.so
+```
 
 System-Wide Limit
 
