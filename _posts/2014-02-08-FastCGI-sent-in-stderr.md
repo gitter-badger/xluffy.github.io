@@ -9,6 +9,9 @@ description: FastCGI sent in stderr "Primary script unknown"
 
 ### Vấn đề:
 
+Bạn setup nginx và php dưới dạng nginx+php-fpm. Nghĩa là khi có một request được gửi tới web server (nginx)
+nó sẽ tạo một kết nối bằng TCP hoặc Unix socket tới Application Server (FastCGI Server)
+
 
 I know this isn’t a unique question, but perhaps the manifesting situation is unique. Answers found elsewhere don’t match what I believe are my circumstances.
 
@@ -31,4 +34,6 @@ Typically it should be something like:
 or
 
 `fastcgi_param SCRIPT_FILENAME /usr/share/nginx/html$fastcgi_script_name;`
+
+
 
