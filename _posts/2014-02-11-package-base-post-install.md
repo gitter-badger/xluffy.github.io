@@ -23,6 +23,7 @@ Cài đặt repo Epel
 Các gói base:
 
 ```
-	yum install systemtool system-config-network-tui vim wget curl gcc libtool make autoconf automake htop -y
+	yum install systemtool system-config-network-tui vim wget curl gcc libtool -y
+	yum install make autoconf automake htop -y
 ```
 
