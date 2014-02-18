@@ -5,7 +5,7 @@ author: xluffy
 date:   2014-02-11
 tags: linux, package, CentOS
 description: "Một số gói cần thiết sau khi cài CentOS minimum"
-...
+---
 
 ### Vấn đề:
 
@@ -17,18 +17,25 @@ các gói phần mềm khác.
 
 Cài đặt repo Epel
 
-\`\`` 	~$ wget
-http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 	~$
-sudo rpm -Uvh epel-release-6*.rpm `\`\`
+``` 
+	~$ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 	
+	~$ sudo rpm -Uvh epel-release-6*.rpm
+```
 
 Các gói base:
 
-\`\`` 	~$ yum install systemtool system-config-network-tui vim wget curl gcc
-libtool -y 	~$ yum install make autoconf automake htop -y `\`\`
+```
+	~$ yum install systemtool system-config-network-tui vim libtool -y 	
+	~$ yum install make autoconf automake htop wget curl gcc -y
+```
 
 Thiết lập:
 
-\`\`` 	~$ /etc/init.d/iptables stop 	~$ /etc/init.d/ip6tables stop 	~$ chkconfig
-iptables off 	~$ chkconfig ipt6ables off `\`\`
+```
+	~$ /etc/init.d/iptables stop 	
+	~$ /etc/init.d/ip6tables stop 	
+	~$ chkconfig iptables off 	
+	~$ chkconfig ipt6ables off
+```
 
 
