@@ -9,7 +9,7 @@ description: So sánh các cách sử dụng PHP cùng với web service
 
 ### Sơ lược:
 
-Về cơ bản với Web server là Apache ta có thể có 3 cách biên dịch và thực thi các mã *.php như sau:
+Về cơ bản với Web server là Apache ta có thể có 3 cách biên dịch và thực thi các mã .php như sau:
 
 - Biên dịch PHP như một static module của Apache.
 - Biên dịch PHP như một dynamic module của Apache.
@@ -48,11 +48,15 @@ __Ưu điểm của cả 2 cách trên__ là PHP module được sinh ra sẽ nh
 và tiết kiệm RAM hơn.
 
 __Tổng kết:__ Dù biên dịch static hay dynamic thì cơ chế xử lý của PHP trong mod_php là như nhau. Nghĩa là khi có request tới thì
-sẽ vẫn đá qua module PHP để xử lý (tương tự như các module khác). Điều khác biệt chỉ ở lần thực thi script PHP đầu tiên (static thì 
+
+sẽ vẫn đá qua module PHP để xử lý (tương tự như cách xử lý ở các module khác). Điều khác biệt chỉ ở lần thực thi script PHP đầu tiên (static thì 
+
 load sẵn, dynamic thì khi có request đầu tiên mới load) tuy nhiên ở những lần thực thi sau thì cả 2 đều như nhau, không cần phải load
 lại module PHP nữa.
 
 ### Biên dịch PHP như một CGI interprete (cụ thể ở đây là FastCGI)
+
+Lưu ý là FastCGI là một chuẩn giao thức liên lạc (communication protocol). 
 
 FastCGI là một dạng _server_ tách rời với Apache (thực chất là trên cùng một server). Khi có một request đi vào, Apache sẽ connect 
 và chuyển request đó cho FastCGI server (Apache lúc này là FastCGI client). FastCGI và Apache giao tiếp với nhau qua kết nối 
@@ -70,7 +74,6 @@ lightweight như cách biên dịch PHP module được.
 Kết nối ở dạng Unix Socket
 
 `FastCgiExternalServer /var/www/php5.external -socket /var/run/php5-fpm.sock`
-
 
 Kết nối ở dạng TCP
 
