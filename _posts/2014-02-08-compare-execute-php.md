@@ -56,6 +56,8 @@ lại module PHP nữa.
 
 ### Biên dịch PHP như một CGI interprete (cụ thể ở đây là FastCGI)
 
+Lưu ý là FastCGI là một chuẩn giao thức liên lạc (communication protocol). 
+
 FastCGI là một dạng _server_ tách rời với Apache (thực chất là trên cùng một server). Khi có một request đi vào, Apache sẽ connect 
 và chuyển request đó cho FastCGI server (Apache lúc này là FastCGI client). FastCGI và Apache giao tiếp với nhau qua kết nối 
 TCP hoặc Unix socket.
@@ -72,7 +74,6 @@ lightweight như cách biên dịch PHP module được.
 Kết nối ở dạng Unix Socket
 
 `FastCgiExternalServer /var/www/php5.external -socket /var/run/php5-fpm.sock`
-
 
 Kết nối ở dạng TCP
 
