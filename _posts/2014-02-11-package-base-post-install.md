@@ -26,7 +26,7 @@ Các gói base:
 
 ```
 	~$ yum install systemtool system-config-network-tui vim libtool -y 	
-	~$ yum install make autoconf automake htop wget curl gcc -y
+	~$ yum install make autoconf automake htop wget curl gcc gcc-c++ -y
 ```
 
 Thiết lập:
