@@ -34,3 +34,5 @@ Trên Arch Linux có thể cài đặt và sử dụng như sau:
 ```
 
 Cũng giống như giao thức ssh, nếu sử dụng một port khác để ssh bạn cũng có thể sử dụng option -p để chỉ định port.
+
+Từ bây giờ có thể thao tác thư mục đó như trên chính máy mình.
