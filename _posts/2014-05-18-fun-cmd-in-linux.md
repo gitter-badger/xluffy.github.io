@@ -34,3 +34,9 @@ thể chạy một lệnh mà không lưu lại history bằng cách thêm một
     ~$ <space>ll
     ~$ history
 ```
+
+### Chạy lệnh cuối cùng như root
+
+```
+    ~$ sudo !!
+```
