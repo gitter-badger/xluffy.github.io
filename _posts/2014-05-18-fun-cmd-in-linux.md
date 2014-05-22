@@ -40,3 +40,13 @@ thể chạy một lệnh mà không lưu lại history bằng cách thêm một
 ```
     ~$ sudo !!
 ```
+
+### Tạo một file với kích thước lớn
+
+Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra, cách đơn giản là làm sao đẩy dữ liệu vào đủ 10GB, hoặc tải 1 bộ film 10GB. Nhưng các cách đó thì quá lâu, đơn giản ta có thể sử dụng lệnh sau để tạo ra các file có kích thước lớn.
+
+```
+	~$ truncate -s 10GB bigfile.a
+	~$ fallocate -l 10GB bigfile.a
+	~$ dd if=/dev/zero of=filename bs=1 count=0 seek=10G
+```
