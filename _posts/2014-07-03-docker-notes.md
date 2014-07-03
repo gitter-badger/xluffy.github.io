@@ -18,6 +18,38 @@ Search, pull
 ``` 
   ~$ sudo docker search ubuntu
   ~$ sudo docker pull ubuntu
-  
+  ~$ sudo docker images 
 ```
 
+Chạy cmd
+
+```
+  ~$ sudo docker run ubuntu/12.04 echo "hello world"
+  ~$ sudo docker run ubuntu/12.04 apt-get install -y ping
+```
+
+Sau đó có thay đổi gì ví dụ như cài cắm thêm gì thì có thể commit và push
+
+Docker có một chỗ gọi là `hub.docker.com` cho phép đăng ký, và tạo free 1 repo, có thể tạo riêng một images  cài, commit, push lên chính repo của mình. 
+
+## thao tác với images
+
+Search qua thì thấy có khá nhiều cách tạo, dùng febootstraps để tạo imagee cho CentOS/RHEL, debbootstrap để tạo cho  Debina/Ubuntu, một cách khác nữa là dùng Dockerfile
+
+Tài liệu ở đây: https://docs.docker.com/userguide/dockerimages/#creating-our-own-images
+
+B1: Tạo một Dockerfile đơn giản cho việc tạo iamge cho Ubuntu 
+
+```
+  #Buidl an Image from Dockerfile
+  FROM ubuntu:12.04
+  MAINTAINER Quang Nguyen <xquang.foss@gmail.com>
+```
+
+Build Image
+
+```
+  ~$ sudo docker build -t="sg/rBu:v1" . ## Lưu ý là có dấu `.` ở cuối, chỉ thư mục chứa Dockerfile
+```
+
+Vậy là xong bước tạo một image, giờ ta có thể tạo một container từ image mới tạo nàuy
