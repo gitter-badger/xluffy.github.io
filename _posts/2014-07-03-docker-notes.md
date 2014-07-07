@@ -52,4 +52,21 @@ Build Image
   ~$ sudo docker build -t="sg/rBu:v1" . ## Lưu ý là có dấu `.` ở cuối, chỉ thư mục chứa Dockerfile
 ```
 
-Vậy là xong bước tạo một image, giờ ta có thể tạo một container từ image mới tạo nàuy
+Vậy là xong bước tạo một image, giờ ta có thể tạo một container từ image mới tạo này
+
+## Vòng đời
+
+	+ `docker run` tạo một container.
+	+ `docker stop` stop một container.
+	+ `docker start` và start nó lại.
+	+ `docker restart` restarts một container.
+	+ `docker rm` xóa một container.
+	+ `docker kill` gửi một SIGKILL tới một container. Has issues.
+	+ `docker attach` sẽ connect với một container đang chạy.
+	+ `docker wait` blocks until container stops.
+	
+Nếu bạn muốn chạy và tương tác với một container, `docker start` và `docker attach`
+Nếu muốn có một container tạm thời, chạy `docker run -rm`, nó sẽ xóa container đó khi stop.
+Nếu muốn chia sẻ một thư mục từ host tới docker container, chạy `docker run -v $HOSTDIR:DOCKERDIR`
+
+Nếu muốn có một container tạm thời, chạy `docker run -rm`, nó sẽ xóa container đó khi stop.
