@@ -1,8 +1,6 @@
 Vài ghi chép các nhân để nhớ những thao tác và khái nhiệm khi sử dụng Docker
 
-- Docker có 2 khái niệm là Container và Images
-
-## thao tác với container
+## Cài đặt trên ArchLinux
 
 Cài đặt, start trên ArchLinux và kiểm tra
 
@@ -13,48 +11,12 @@ Cài đặt, start trên ArchLinux và kiểm tra
   ~$ sudo docker version
 ```
 
-Search, pull
+Về cơ bản, có 2 khái niệm cần phân biệt là Container và Images, cụ thể từng phần như ở dưới.
 
-``` 
-  ~$ sudo docker search ubuntu
-  ~$ sudo docker pull ubuntu
-  ~$ sudo docker images 
-```
 
-Chạy cmd
+## Docker Container
 
-```
-  ~$ sudo docker run ubuntu/12.04 echo "hello world"
-  ~$ sudo docker run ubuntu/12.04 apt-get install -y ping
-```
-
-Sau đó có thay đổi gì ví dụ như cài cắm thêm gì thì có thể commit và push
-
-Docker có một chỗ gọi là `hub.docker.com` cho phép đăng ký, và tạo free 1 repo, có thể tạo riêng một images  cài, commit, push lên chính repo của mình. 
-
-## thao tác với images
-
-Search qua thì thấy có khá nhiều cách tạo, dùng febootstraps để tạo imagee cho CentOS/RHEL, debbootstrap để tạo cho  Debina/Ubuntu, một cách khác nữa là dùng Dockerfile
-
-Tài liệu ở đây: https://docs.docker.com/userguide/dockerimages/#creating-our-own-images
-
-B1: Tạo một Dockerfile đơn giản cho việc tạo iamge cho Ubuntu 
-
-```
-  #Buidl an Image from Dockerfile
-  FROM ubuntu:12.04
-  MAINTAINER Quang Nguyen <xquang.foss@gmail.com>
-```
-
-Build Image
-
-```
-  ~$ sudo docker build -t="sg/rBu:v1" . ## Lưu ý là có dấu `.` ở cuối, chỉ thư mục chứa Dockerfile
-```
-
-Vậy là xong bước tạo một image, giờ ta có thể tạo một container từ image mới tạo này
-
-## Vòng đời
+### Vòng đời
 
 + `docker run` tạo một container.
 + `docker stop` stop một container.
@@ -66,7 +28,61 @@ Vậy là xong bước tạo một image, giờ ta có thể tạo một contain
 + `docker wait` blocks until container stops.
 	
 Nếu bạn muốn chạy và tương tác với một container, `docker start` và `docker attach`
+
 Nếu muốn có một container tạm thời, chạy `docker run -rm`, nó sẽ xóa container đó khi stop.
+
 Nếu muốn chia sẻ một thư mục từ host tới docker container, chạy `docker run -v $HOSTDIR:DOCKERDIR`
 
 Nếu muốn có một container tạm thời, chạy `docker run -rm`, nó sẽ xóa container đó khi stop.
+
+### Thông tin
+
++ `docker ps` hiển thị các container đang chạy.
++ `docker inspect` tìm kiếm tất cả thông tin của một container, bao gồm cả địa chỉ IP.
++ `docker logs` lấy log từ một container.
++ `docker events` lấy events từ một container.
++ `docker port` hiển thị public port của một container.
++ `docker top` hiển thị các process trong một container.
++ `docker diff` hiển thị các file thay đổi trong FS của một container.
++ `docker ps -a` hiển thị tất cả các container, bao gồm cả đang chạy và stop.
+
+### Import/Export
+
++ `docker cp` copy file hoặc thư mục ra khỏi filesystem của container.
++ `docker export` đóng gói filesystem của container vô một tarball
+
+## Images
+
+Images chỉ là một template cho docker container, tương tự như khái niệm template của OpenVZ
+
+### Vòng đời
+
++ `docker images` hiển thị tất cả các images.
++ `docker import` tạo một image từ tarball.
++ `docker build` tạo một images từ Dockerfile.
++ `docker commit` tạo một image từ một container.
++ `docker rmi` xóa một image.
++ `docker insert` inserts một file từ URL vào image(kind of odd, you'd think images would be immutable after create)
++ `docker load` load một image từ một tar như STDIN, bao gồm cả images và tags (as of 0.7).
++ `docker save` lưu một image vào một file tar từ STDOUT with all parent layers, tags & versions (as of 0.7).
+
+### Info
+
++ `docker history` hiển thị history của một images.
++ `docker tags` tags một image thành tên (local hoặc reg).
+
+### Registry & Repository (hub.docker.io)
+
+Một repository là một bộ sưu tập lưu trữ các images được đánh tags giúp tạo ra filesytem cho một container.
+
+Một registry là một máy chủ -- máy chủ lưu trữ các repositorry và cung cấp một HTTP API cho phép quản lý việc upload và download của các repository.
+
+Docker.io là một máy chủ, nó là một central registry chứa một số luownjg lớn các repository.
+
++ `docker login` login vào một registry.
++ `docker search` search registry cho image.
++ `docker pull` pulls một image từ registry về local machine.
++ `docker push` push một images tới registry từ local machine.
+
+## Dockerfile
+
