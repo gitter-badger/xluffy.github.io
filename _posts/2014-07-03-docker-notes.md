@@ -1,5 +1,9 @@
 Vài ghi chép các nhân để nhớ những thao tác và khái nhiệm khi sử dụng Docker
 
+Bài dịch, viết có tham khảo ở https://gist.github.com/wsargent/7049221
+
+Docker registry của tôi: https://registry.hub.docker.com/u/xluffy/saigon/
+
 ## Cài đặt trên ArchLinux
 
 Cài đặt, start trên ArchLinux và kiểm tra
@@ -77,12 +81,44 @@ Một repository là một bộ sưu tập lưu trữ các images được đán
 
 Một registry là một máy chủ -- máy chủ lưu trữ các repositorry và cung cấp một HTTP API cho phép quản lý việc upload và download của các repository.
 
-Docker.io là một máy chủ, nó là một central registry chứa một số luownjg lớn các repository.
+Docker.io là một máy chủ, nó là một central registry chứa một số lượng lớn các repository, với tài khoản free sẽ được một private repo.
 
 + `docker login` login vào một registry.
 + `docker search` search registry cho image.
 + `docker pull` pulls một image từ registry về local machine.
 + `docker push` push một images tới registry từ local machine.
 
-## Dockerfile
+## Dockerfile (là một trong các cách tạo image, nhưng phổ biến nên sẽ nói riêng nó)
+
+Thú thật là chả có gì để viết về phần này, 1 là Dockerfile vô cùng basic của tôi, dùng để thử, và 1 của người khác, cũng đơn giản ko kém
+
+```
+	# Build an Image from Dockerfile
+	FROM ubuntu:12.04
+	MAINTAINER Quang Nguyen <xquang.foss@gmail.com>
+```
+
+```
+	# Base image
+	FROM ubuntu:12.04
+	ENV REFRESHED_AT 2013-11-16
+
+	RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+	RUN apt-get update
+	RUN apt-get upgrade -y
+
+	# Install common packages (from http://youtu.be/1Fm3MJhQZZg)
+	run apt-get -y -q install aptitude sudo apt-utils ntp build-essential curl tzdata wget less dnsutils gzip netcat screen unzip sysstat git python-software-properties vim zsh
+
+	# set up timezone
+	run ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+
+	# set up locale
+	run locale-gen en_US.UTF-8
+	run update-locale LANG=en_US.UTF-8
+	ENV LC_ALL en_US.UTF-8
+	ENV LANG en_US.UTF-8
+```
+
+
 
