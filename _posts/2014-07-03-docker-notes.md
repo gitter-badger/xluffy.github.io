@@ -7,7 +7,6 @@ tags: docker, container, vm
 description: "Docker note for dev env"
 ---
 
-
 Vài ghi chép các nhân để nhớ những thao tác và khái nhiệm khi sử dụng Docker
 
 Bài dịch, viết có tham khảo ở https://gist.github.com/wsargent/7049221
