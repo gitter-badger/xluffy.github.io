@@ -1,0 +1,27 @@
+<h3 id="vn_">Vấn đề:</h3>
+
+<p>Khi cài CentOS phiên bản minimum sẽ thiếu rất nhiều gói cần thiết cho việc quản trị hệ thống. Ví dụ như <code>vim, htop, wget...</code> các gói cần cho quá trình biên dịch các gói phần mềm khác.</p>
+
+<h3 id="gii_quyt">Giải quyết</h3>
+
+<p>Cài đặt repo Epel</p>
+
+<pre><code>	~$ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 	
+	~$ sudo rpm -Uvh epel-release-6*.rpm</code></pre>
+
+<p>Cai dat repo Remi</p>
+
+<pre><code>	~$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+	~$ rpm -Uvh remi-release-5*.rpm</code></pre>
+
+<p>Các gói base:</p>
+
+<pre><code>	~$ yum install systemtool system-config-network-tui vim libtool -y 	
+	~$ yum install make autoconf automake htop wget curl gcc gcc-c++ -y</code></pre>
+
+<p>Thiết lập:</p>
+
+<pre><code>	~$ /etc/init.d/iptables stop 	
+	~$ /etc/init.d/ip6tables stop 	
+	~$ chkconfig iptables off 	
+	~$ chkconfig ipt6ables off</code></pre>

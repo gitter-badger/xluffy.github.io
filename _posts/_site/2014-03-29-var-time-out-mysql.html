@@ -1,0 +1,64 @@
+<h3 id="cc_thng_s">Các thông số</h3>
+
+<p>Để show các thông số time-out của mysql ta đăng nhập vào cửa sổ dòng lệnh của mysql và gõ <code>show variables like &quot;%timeout%&quot;;</code></p>
+
+<pre><code>	show variables like &quot;%timeout%&quot;;
+	+----------------------------+-------+
+	| Variable_name              | Value |
+	+----------------------------+-------+
+	| connect_timeout            | 10    |
+	| delayed_insert_timeout     | 120   |
+	| innodb_lock_wait_timeout   | 50    |
+	| innodb_rollback_on_timeout | OFF   |
+	| interactive_timeout        | 28800 |
+	| lock_wait_timeout          | 60    |
+	| net_read_timeout           | 60    |
+	| net_write_timeout          | 60    |
+	| slave_net_timeout          | 3600  |
+	| wait_timeout               | 28800 |
+	+----------------------------+-------+
+	10 rows in set (0.00 sec)</code></pre>
+
+<p>Tại sao có nhiều tham số timeout của MySQL đến vậy và vai trò của nó ứng với các trường hợp như thế nào?</p>
+
+<p>MySQL sử dụng nhiều tham số timeout khác nhau cho các trạng thái hoạt động khác nhau. Khi bắt đầu kết nối giữa client và MySQL Server, <code>connection_timeout</code> được sử dụng. Khi server chờ một query nào đó được gởi đến nó thì <code>wait_timeout</code> được sử dụng. Nếu query bắt đầu được đọc xử lý xong và gởi ngược lại cho ứng dụng thì <code>net_read_timeout</code> và <code>net_write_timeout</code> được sử dụng.</p>
+
+<p><code>innodb_lock_wait_timeout</code> được sử dụng khi các table có engine là Innodb bắt đầu bị lock (ở chế độ lock rows). <code>delayed_insert_timeout</code> được sử dụng khi query insert bị delay . <code>slave_net_timeout</code> được sử dụng trong trường hợp replication khi slave đang đọc dữ liệu từ master.</p>
+
+<h3 id="cc_tham_s_timeout_mysql_v__ngha_ca_n">Các tham số timeout MySQL và ý nghĩa của nó</h3>
+
+<h4 id="connect_timeout">connect_timeout:</h4>
+
+<p>Thời gian (tính bằng giây) mà MySQL server chờ đợi cho các gói tin kết nối trước khi trả về Bad handshake . Từ MySQL 5.1.23, mặc định giá trị này là 10, các phiên bản trước giá trị này là 5. Tăng giá trị <code>connect_timeout</code> có thể giúp được trong trường hợp ứng dụng tốn nhiều thời gian để kết nối với MySQL (MySQL và ứng dụng không cùng chung trên một server, cách xa nhau) hoặc bị lỗi Lost connection to MySQL server .</p>
+
+<h4 id="delayed_insert_timeout">delayed_insert_timeout:</h4>
+
+<p>Tham số timeout trong trường hợp sư dụng cú pháp INSERT DELAYED . Ví dụ <code>INSERT DELAYED INTO table (id) VALUES (123)</code>. Với cú pháp INSERT DELAYED, MySQL sẽ không chờ đến khi insert xong mới response về cho client mà sẽ response ngay lập tức. Lúc này câu lệnh này sẽ được lưu vào hàng đợ trên RAM và sẽ được thực thi khi đến lược. Nếu quá thời gian <code>delay_insert_timeout</code> mà truy vấn tại hàng đợi vẫn chưa được thực thi, truy vấn sẽ bị huỷ.</p>
+
+<h4 id="innodb_lock_wait_timeout">innodb_lock_wait_timeout:</h4>
+
+<p>Tham số timeout chỉ dành cho các table sử dụng engine Innodb. Tham số này là thời gian tối đa mà các transaction Innodb có thể chờ khi row bị lock. Giá trị mày mặc định là 50 giây. Một transaction Innodb cố gắng truy cập vào một row đang ở trạng thái lock bởi một Innodb transaction khác sẽ bị huỷ nếu quá thời gian timeout chờ đợi này, lúc đó lỗi trả về sẽ là:</p>
+
+<pre><code>	ERROR 1205 (HY000): Lock wait timeout exceeded; try restarting transaction</code></pre>
+
+<h4 id="interactive_timeout">interactive_timeout:</h4>
+
+<p>Thời gian tối đa (theo giây) mà server chờ đợi cho các hoạt động trên một kết nối tương tác (interactive connection) trước khi đóng chúng. Một client tương tác (interactive client) là client sử dụng tuỳ chọn CLIENT_INTERACTIVE) cho mysql_real_connect().</p>
+
+<h4 id="net_read_timeout">net_read_timeout:</h4>
+
+<p>Thời gian tối đa(tính theo giây) mà server chờ đợi dữ liệu khi đã kết nối trước khi ngắt. MySQL phiên bản trước 5.1.41, timeout này chỉ áp dụng cho timeout của kết nối TCP/IP, không áp dụng cho Unix socket, named pipes hay shared memory.</p>
+
+<h4 id="net_write_timeout">net_write_timeout:</h4>
+
+<p>Khi server trả dữ liệu về client, <code>net_write_timeout</code> là giá trị để kiểm soát khi nào ngắt kết nối trả về. Tương tự như <code>net_read_timeout</code>, trước phiên bản MySQL 5.1.41 timeout này chỉ áp dụng cho timeout của kết nối TCP/IP, không áp dụng cho Unix socket, named pipes hay shared memory.</p>
+
+<h4 id="slave_net_timeout">slave_net_timeout:</h4>
+
+<p>Thời gian timeout mà server slave chờ đợi dữ liệu từ master trước khi nết nối bị đóng.</p>
+
+<h4 id="wait_timeout">wait_timeout:</h4>
+
+<p>Thời gian timeout mà server chờ đợi các hoạt động của kết nối không tương tác (noninteractive) trước khi đóng chúng. Timeout này chỉ áp dụng cho kết nói TCP/IP và Unix socket, không áp dụng cho kết nối tạo ra sử dụng named pipes hoặc shared memory.</p>
+
+<p>Cấu hình tham số này quá thấp có thể sẽ gây nên việc ngắt kết nối quá sớm của server đến client. Cấu hình tham số này quá cao có thể dẫn đến tồn tại nhiều kết nối từ phía client đến MySQL server cùng lúc, tốn tài nguyên server. Tóm lại tuỳ theo đặc điểm của máy chủ và ứng dụng mà tinh chỉ timeout cho phù hợp</p>

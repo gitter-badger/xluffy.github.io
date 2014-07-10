@@ -1,0 +1,153 @@
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<p>Vài ghi chép các nhân để nhớ những thao tác và khái nhiệm khi sử dụng Docker</p>
+
+<p>Bài dịch, viết có tham khảo ở https://gist.github.com/wsargent/7049221</p>
+
+<p>Docker registry của tôi: https://registry.hub.docker.com/u/xluffy/saigon/</p>
+
+<h2 id="ci_t_trn_archlinux">Cài đặt trên ArchLinux</h2>
+
+<p>Cài đặt, start trên ArchLinux và kiểm tra</p>
+
+<pre><code>  ~$ pacman -S docker
+  ~$ sudo systemctl start docker
+  ~$ sudo docker info
+  ~$ sudo docker version</code></pre>
+
+<p>Về cơ bản, có 2 khái niệm cần phân biệt là Container và Images, cụ thể từng phần như ở dưới.</p>
+
+<h2 id="docker_container">Docker Container</h2>
+
+<h3 id="vng_i">Vòng đời</h3>
+
+<ul>
+<li><code>docker run</code> tạo một container.</li>
+
+<li><code>docker stop</code> stop một container.</li>
+
+<li><code>docker start</code> và start nó lại.</li>
+
+<li><code>docker restart</code> restarts một container.</li>
+
+<li><code>docker rm</code> xóa một container.</li>
+
+<li><code>docker kill</code> gửi một SIGKILL tới một container. Has issues.</li>
+
+<li><code>docker attach</code> sẽ connect với một container đang chạy.</li>
+
+<li><code>docker wait</code> blocks until container stops.</li>
+</ul>
+
+<p>Nếu bạn muốn chạy và tương tác với một container, <code>docker start</code> và <code>docker attach</code></p>
+
+<p>Nếu muốn có một container tạm thời, chạy <code>docker run -rm</code>, nó sẽ xóa container đó khi stop.</p>
+
+<p>Nếu muốn chia sẻ một thư mục từ host tới docker container, chạy <code>docker run -v $HOSTDIR:DOCKERDIR</code></p>
+
+<p>Nếu muốn có một container tạm thời, chạy <code>docker run -rm</code>, nó sẽ xóa container đó khi stop.</p>
+
+<h3 id="thng_tin">Thông tin</h3>
+
+<ul>
+<li><code>docker ps</code> hiển thị các container đang chạy.</li>
+
+<li><code>docker inspect</code> tìm kiếm tất cả thông tin của một container, bao gồm cả địa chỉ IP.</li>
+
+<li><code>docker logs</code> lấy log từ một container.</li>
+
+<li><code>docker events</code> lấy events từ một container.</li>
+
+<li><code>docker port</code> hiển thị public port của một container.</li>
+
+<li><code>docker top</code> hiển thị các process trong một container.</li>
+
+<li><code>docker diff</code> hiển thị các file thay đổi trong FS của một container.</li>
+
+<li><code>docker ps -a</code> hiển thị tất cả các container, bao gồm cả đang chạy và stop.</li>
+</ul>
+
+<h3 id="importexport">Import/Export</h3>
+
+<ul>
+<li><code>docker cp</code> copy file hoặc thư mục ra khỏi filesystem của container.</li>
+
+<li><code>docker export</code> đóng gói filesystem của container vô một tarball</li>
+</ul>
+
+<h2 id="images">Images</h2>
+
+<p>Images chỉ là một template cho docker container, tương tự như khái niệm template của OpenVZ</p>
+
+<h3 id="vng_i_2">Vòng đời</h3>
+
+<ul>
+<li><code>docker images</code> hiển thị tất cả các images.</li>
+
+<li><code>docker import</code> tạo một image từ tarball.</li>
+
+<li><code>docker build</code> tạo một images từ Dockerfile.</li>
+
+<li><code>docker commit</code> tạo một image từ một container.</li>
+
+<li><code>docker rmi</code> xóa một image.</li>
+
+<li><code>docker insert</code> inserts một file từ URL vào image(kind of odd, you’d think images would be immutable after create)</li>
+
+<li><code>docker load</code> load một image từ một tar như STDIN, bao gồm cả images và tags (as of 0.7).</li>
+
+<li><code>docker save</code> lưu một image vào một file tar từ STDOUT with all parent layers, tags &amp; versions (as of 0.7).</li>
+</ul>
+
+<h3 id="info">Info</h3>
+
+<ul>
+<li><code>docker history</code> hiển thị history của một images.</li>
+
+<li><code>docker tags</code> tags một image thành tên (local hoặc reg).</li>
+</ul>
+
+<h3 id="registry__repository_hubdockerio">Registry &amp; Repository (hub.docker.io)</h3>
+
+<p>Một repository là một bộ sưu tập lưu trữ các images được đánh tags giúp tạo ra filesytem cho một container.</p>
+
+<p>Một registry là một máy chủ – máy chủ lưu trữ các repositorry và cung cấp một HTTP API cho phép quản lý việc upload và download của các repository.</p>
+
+<p>Docker.io là một máy chủ, nó là một central registry chứa một số lượng lớn các repository, với tài khoản free sẽ được một private repo.</p>
+
+<ul>
+<li><code>docker login</code> login vào một registry.</li>
+
+<li><code>docker search</code> search registry cho image.</li>
+
+<li><code>docker pull</code> pulls một image từ registry về local machine.</li>
+
+<li><code>docker push</code> push một images tới registry từ local machine.</li>
+</ul>
+
+<h2 id="dockerfile_l_mt_trong_cc_cch_to_image_nhng_ph_bin_nn_s_ni_ring_n">Dockerfile (là một trong các cách tạo image, nhưng phổ biến nên sẽ nói riêng nó)</h2>
+
+<p>Thú thật là chả có gì để viết về phần này, 1 là Dockerfile vô cùng basic của tôi, dùng để thử, và 1 của người khác, cũng đơn giản ko kém</p>
+
+<pre><code>	# Build an Image from Dockerfile
+	FROM ubuntu:12.04
+	MAINTAINER Quang Nguyen &lt;xquang.foss@gmail.com&gt;</code></pre>
+
+<pre><code>	# Base image
+	FROM ubuntu:12.04
+	ENV REFRESHED_AT 2013-11-16
+
+	RUN echo &quot;deb http://archive.ubuntu.com/ubuntu precise main universe&quot; &gt; /etc/apt/sources.list
+	RUN apt-get update
+	RUN apt-get upgrade -y
+
+	# Install common packages (from http://youtu.be/1Fm3MJhQZZg)
+	run apt-get -y -q install aptitude sudo apt-utils ntp build-essential curl tzdata wget less dnsutils gzip netcat screen unzip sysstat git python-software-properties vim zsh
+
+	# set up timezone
+	run ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
+
+	# set up locale
+	run locale-gen en_US.UTF-8
+	run update-locale LANG=en_US.UTF-8
+	ENV LC_ALL en_US.UTF-8
+	ENV LANG en_US.UTF-8</code></pre>

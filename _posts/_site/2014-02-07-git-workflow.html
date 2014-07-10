@@ -1,0 +1,18 @@
+<h3 id="master">master</h3>
+
+<pre><code>    1) git pull origin master
+    2) git checkout -b weekly-news
+        -&gt; weekly-news
+        ...
+    9) git pull origin master
+    10)git merge --no-ff weekly-news</code></pre>
+
+<h3 id="weeklynews">weekly-news</h3>
+
+<pre><code>    3) git fetch origin
+    4) git rebase origin/master
+    5) git rebase origin/weekly-news
+    6) git push origin weekly-news
+    7) git rebase -i origin/master
+    8) git checkout master
+        -&gt; master</code></pre>

@@ -1,0 +1,66 @@
+<p>If you are getting error “Too many open files (24)” then your application/command/script is hitting max open file limit allowed by linux. You need to increase open file limit as below: Increase limit Per-User Limit</p>
+
+<p>Open file: /etc/security/limits.conf</p>
+
+<p>Paste following towards end:</p>
+
+<pre><code>	*         hard    nofile      500000
+	*         soft    nofile      500000
+	root      hard    nofile      500000
+	root      soft    nofile      500000</code></pre>
+
+<p>500000 is fair number. I am not sure what is max limit but 999999 (Six-9) worked for me once as far as I remember.</p>
+
+<p>Once you save file, you may need to logout and login again. pam-limits</p>
+
+<p>I read at many places that an extra step is neede for limit to change for daemon processes. I did not need following yet, but if above changes are not working for you, you may give this a try.</p>
+
+<p>Open /etc/pam.d/common-session</p>
+
+<p>Add following line:</p>
+
+<pre><code>	session required pam_limits.so</code></pre>
+
+<p>System-Wide Limit</p>
+
+<p>Set this higher than user-limit set above.</p>
+
+<p>Open /etc/sysctl.conf</p>
+
+<p>Add following:</p>
+
+<pre><code>	fs.file-max = 2097152</code></pre>
+
+<p>Run:</p>
+
+<p><code>sysctl -p</code></p>
+
+<p>Above will increase “total” number of files that can remain open system-wide. Verify New Limits</p>
+
+<p>Use following command to see max limit of file descriptors:</p>
+
+<p><code>cat /proc/sys/fs/file-max</code></p>
+
+<p>Hard Limit</p>
+
+<p><code>ulimit -Hn</code></p>
+
+<p>Soft Limit</p>
+
+<p><code>ulimit -Sn</code></p>
+
+<p>if you are logged in as root: Check limit for other user</p>
+
+<p>Just replace www-data by linux username you wish to check limits for:</p>
+
+<p><code>su - www-data -c &#39;ulimit -aHS&#39; -s &#39;/bin/bash&#39;</code></p>
+
+<p>Check limits of a running process:</p>
+
+<p>Find process-id (PID):</p>
+
+<p><code>ps aux | grep process-name</code></p>
+
+<p>Suppose, XXX is PID, then run following commands to check limits:</p>
+
+<p><code>cat /proc/XXX/limits</code></p>

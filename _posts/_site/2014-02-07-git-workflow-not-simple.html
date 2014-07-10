@@ -1,0 +1,153 @@
+<h1 id="a_simple_git_branching_model">a <strong>simple</strong> git branching model</h1>
+
+<p>Đây là một workflow rất đơn giản khi sử dụng git. Nó (và các biến thể) được sử dụng bởi rất nhiều người. Tôi đã chọn nó sau khi sử dụng nó rất hiệu quả tại <a href="http://athena.ai">Athena</a>. <a href="https://github.com">GitHub</a> cũng làm điều gì đó tương tự; Zach Holman đề cập đến nó trong <a href="http://www.youtube.com/watch?v=qyz3jkOBbQY&t=09m12s">this talk</a>.</p>
+
+<h3 id="cc__chnh">Các ý chính</h3>
+
+<ol>
+<li><code>master</code> phải luôn luôn ở trạng thái sẵn sàng deploy.</li>
+
+<li><strong>tất cả thay đổi</strong> phải được thực hiện trên feature branches (pull-request + merge)</li>
+
+<li>rebase để tránh/giải quyết các xung đột; và merge vào <code>master</code></li>
+</ol>
+
+<p>Hoặc, như Zach Holman đã giải thích ngắn gọn tại:</p>
+
+<p><img src="http://static.benet.ai/skitch/flow-20130926-193419.png" alt="flow" /></p>
+
+<h3 id="the_workflow">The workflow</h3>
+
+<pre><code># everything is happy and up-to-date in master
+git checkout master
+git pull origin master
+
+# let&#39;s branch to make changes
+git checkout -b my-new-feature
+
+# go ahead, make changes now.
+$EDITOR file
+
+# commit your (incremental, atomic) changes
+git add -p
+git commit -m &quot;my changes&quot;
+
+# keep abreast of other changes, to your feature branch or master.
+# rebasing keeps our code working, merging easy, and history clean.
+git fetch origin
+git rebase origin/my-new-feature
+git rebase origin/master
+
+# optional: push your branch for discussion (pull-request)
+#           you might do this many times as you develop.
+git push origin my-new-feature
+
+# optional: feel free to rebase within your feature branch at will.
+#           ok to rebase after pushing if your team can handle it!
+git rebase -i origin/master
+
+# merge when done developing.
+# --no-ff preserves feature history and easy full-feature reverts
+# merge commits should not include changes; rebasing reconciles issues
+# github takes care of this in a Pull-Request merge
+git checkout master
+git pull origin master
+git merge --no-ff my-new-feature
+
+
+# optional: tag important things, such as releases
+git tag 1.0.0-RC1</code></pre>
+
+<h3 id="useful_config">useful config</h3>
+
+<pre><code># autosetup rebase so that pulls rebase by default
+git config --global branch.autosetuprebase always
+
+# if you already have branches (made before `autosetuprebase always`)
+git config branch.&lt;branchname&gt;.rebase true</code></pre>
+
+<h3 id="dos_and_donts">DOs and DON’Ts</h3>
+
+<p>No DO or DON’T is sacred. You’ll obviously run into exceptions, and develop your own way of doing things. However, these are guidelines I’ve found useful.</p>
+
+<h4 id="dos">DOs</h4>
+
+<ul>
+<li><strong>DO</strong> keep <code>master</code> in working order.</li>
+
+<li><strong>DO</strong> rebase your feature branches.
+<ul>
+<li><strong>DO</strong> pull in (rebase on top of) changes</li>
+</ul>
+</li>
+
+<li><strong>DO</strong> tag releases</li>
+
+<li><strong>DO</strong> push feature branches for discussion</li>
+
+<li><strong>DO</strong> learn to rebase</li>
+</ul>
+
+<h4 id="donts">DON’Ts</h4>
+
+<ul>
+<li><strong>DON’T</strong> merge in broken code.</li>
+
+<li><strong>DON’T</strong> commit onto <code>master</code> directly.
+<ul>
+<li><strong>DON’T</strong> hotfix onto master! use a feature branch.</li>
+</ul>
+</li>
+
+<li><strong>DON’T</strong> rebase <code>master</code>.</li>
+
+<li><strong>DON’T</strong> merge with conflicts. handle conflicts upon rebasing.</li>
+</ul>
+
+<h3 id="links">Links</h3>
+
+<ul>
+<li>https://github.com/blog/1124-how-we-use-pull-requests-to-build-github</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="wont__generate_merge_bubbles">Won’t <code>git merge --no-ff</code> generate merge bubbles?</h3>
+
+<p>Yes. Merge bubbles aren’t inherently bad. They allow you to revert entire features at a time. They get confusing and annoying to deal with if they cross (commits interleave), so don’t do that.</p>
+
+<p><img src="http://static.benet.ai/skitch/mergebubbles-20130926-182853.png" alt="merge bubbles" /></p>
+
+<h3 id="what_do_you_mean_by_incremental_atomic_changes">What do you mean by “incremental, atomic” changes?</h3>
+
+<p>http://en.wikipedia.org/wiki/Atomic_commit#Atomic_Commit_Convention</p>
+
+<p>Thanks wikipedia, I couldn’t have put it better myself.</p>
+
+<h3 id="why_not_gitflow_or_another_complex_workflow">Why not <a href="http://nvie.com/git-model/">gitflow</a> or another complex workflow?</h3>
+
+<p>Be my guest. I’ve used gitflow and other similar models. After working in various teams, this is just what I’ve come to use. But next time you have to ask someone whether it is okay to push or pull from this or that branch, remember <a href="http://juan.benet.ai/img/juan.batizbenet.headshotsq.jpg">my face</a>.</p>
+
+<h3 id="but_is_it_webscale">But, is it <a href="http://mongodb-is-web-scale.com/">web-scale</a>?</h3>
+
+<p>Friends claim more complex models are necessary for scaling large teams, maintaining old releases, controlling information flow, etc. It very well may be that using multiple mainlines (e.g. <code>develop</code>, <code>stable</code>, <code>release</code>, <code>v2</code>, <code>tested</code>, etc) is exactly what fits your organization’s constraints. That’s for you to decide, not me (unless we work together – oh hi there!).</p>
+
+<p>But you always have to wonder, “shouldn’t I use tags for that”? For example, tracking releases on a branch is a bit silly. A release commit can be tagged. You can checkout a tag, just like any branch, or any commit, and do whatever it is you need to do.</p>
+
+<p>My guess is this relationship holds:</p>
+
+<p><img src="http://static.benet.ai/t/headless.png" alt="headless" /></p>
+
+<p>So, perhaps taking five minutes to teach your team how to use <code>checkout</code> and <code>tag</code> might save you more than 15% on car insurance.</p>
+
+<h2 id="github_notes">GitHub notes</h2>
+
+<h3 id="dont_fork_push_feature_branches_to_main_repo">Don’t fork. Push feature branches to main repo.</h3>
+
+<p>Sometimes I see people forking repositories in order to issue pull-requests. Yes, you may have to do this when contributing to open-source projects you don’t regularly contribute to. But, if you are a contributor, or working in the same org, get push rights on the repo and push all your feature branches to it. <strong>Issue pull requests from one branch to another within the same repo.</strong></p>
+
+<h3 id="should_i_merge_pull_requests_on_the_site_or_commandline">Should I merge Pull Requests on the site or commandline?</h3>
+
+<p>Up to you. Github does <code>git merge --no-ff</code> so that the commit message indicates the pull request number. This is useful information to have, don’t just throw away history for the sake of it. You never know what will be useful to look at in the future.</p>
+
+<p>Source: https://github.com/17twenty,</p>

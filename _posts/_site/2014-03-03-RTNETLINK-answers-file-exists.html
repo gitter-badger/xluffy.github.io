@@ -1,0 +1,21 @@
+<h4 id="van_de">Van de</h4>
+
+<p>Ubuntu 12.04 LTS co 2 NIC, sau khi cau hinh eth1 voi noi dung nhu sau:</p>
+
+<pre><code>	auto eth1
+	iface eth1 inet static
+	address 192.168.1.117
+	netmask 255.255.255.0
+	gateway 192.168.1.1  </code></pre>
+
+<p>Chay command thi xuat hien loi <strong><em>RTNETLINK answers: File exists</em></strong></p>
+
+<pre><code>	~ $ ifup eth1</code></pre>
+
+<p>Chay lai thu them option -v thi thay</p>
+
+<pre><code>	ip addr add 192.168.0.2/255.255.255.0 broadcast 192.168.0.255     dev eth1 label eth1</code></pre>
+
+<h4 id="giai_phap">Giai phap</h4>
+
+<pre><code>	ip addr flush dev eth1</code></pre>

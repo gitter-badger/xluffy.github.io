@@ -1,0 +1,42 @@
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+<h3 id="tnh_hung">Tình huống</h3>
+
+<p>PHP được biên dịch với các module tùy chọn và prefix khác với prefix mặc định, cụ thể</p>
+
+<pre><code>	~$ ./configure --prefix=/usr/local/php</code></pre>
+
+<p>Điều này dẫn tới thư mục chứa các module của php cũng sẽ thay đổi từ <code>/usr/lib64/php/module/</code> thành /usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/</p>
+
+<p>Vấn đề là giờ nếu ta biên dịch Phalcon, mặc định <code>phalcon.so</code> sẽ không chứa trong thư mục module mới, và phalcon có rất ít option, document hướng dẫn về vấn đề này</p>
+
+<h3 id="gii_quyt">Giải quyết</h3>
+
+<p>Để giải quyết chúng ta sẽ <code>hack</code> một chút vào các php biên dịch một module.</p>
+
+<p>Theo tài liệu cách biên dịch như sau:</p>
+
+<pre><code>	~$ git clone --depth=1 git://github.com/phalcon/cphalcon.git
+	~$ cd cphalcon/build
+	~$ sudo ./install</code></pre>
+
+<p>Cách biên dịch rất khác các biên dịch các phần mềm khác trên Linux, mở thử file install ra xem có cái gì?</p>
+
+<pre><code>	phpize &amp;&amp; ./configure --enable-phalcon &amp;&amp; make &amp;&amp; make install &amp;&amp; echo -e &quot;\nThanks for compiling Phalcon!\nBuild succeed: Please restart your web server to complete the installation&quot;</code></pre>
+
+<p>Chà, PHP có 2 cách chính để cài đặt một module, 1 đó là cài qua <code>pecl</code>, 2 là phpize, chúng ta sẽ không cài bằng script của phalcon mà tự cài tay vậy</p>
+
+<p>B1: Comment dòng phía trên trong file install và chạy <code>./install</code></p>
+
+<p>B2: Vào thư mục cphalcon/ext</p>
+
+<p>B3:</p>
+
+<pre><code>	~$ /usr/local/php/bin/phpize
+	~$ ./configure --with-php-config=/usr/local/php/bin/php-config (sử dụng config của php mới build)
+	~$ make &amp;&amp; make install</code></pre>
+
+<p>Trả ra output</p>
+
+<pre><code>	Installing shared extensions:     /usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/</code></pre>
+
+<p>Vậy là cài thành công</p>
