@@ -32,12 +32,12 @@ Về cơ bản, có 2 khái niệm cần phân biệt là Container và Images, 
 ### Vòng đời
 
 + `docker run` tạo một container.
-+ `docker stop` stop một container.
-+ `docker start` và start nó lại.
-+ `docker restart` restarts một container.
++ `docker stop` tắt một container.
++ `docker start` và bật nó lại.
++ `docker restart` khởi động lại một container.
 + `docker rm` xóa một container.
 + `docker kill` gửi một SIGKILL tới một container. Has issues.
-+ `docker attach` sẽ connect với một container đang chạy.
++ `docker attach` sẽ connect với một container đang chạy (lệnh này tương tự như vzctl enter <node> hoặc virsh console <node-id>).
 + `docker wait` blocks until container stops.
 	
 Nếu bạn muốn chạy và tương tác với một container, `docker start` và `docker attach`
@@ -117,7 +117,8 @@ Thú thật là chả có gì để viết về phần này, 1 là Dockerfile v�
 	RUN apt-get upgrade -y
 
 	# Install common packages (from http://youtu.be/1Fm3MJhQZZg)
-	run apt-get -y -q install aptitude sudo apt-utils ntp build-essential curl tzdata wget less dnsutils gzip netcat screen unzip sysstat git python-software-properties vim zsh
+	run apt-get -y -q install aptitude sudo apt-utils ntp build-essential curl tzdata wget less \
+	dnsutils gzip netcat screen unzip sysstat git python-software-properties vim zsh
 
 	# set up timezone
 	run ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
