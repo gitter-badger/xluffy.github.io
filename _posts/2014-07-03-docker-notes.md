@@ -7,7 +7,7 @@ tags: docker, container, vm
 description: "Vài ghi chú về Docker"
 ---
 
-Vài ghi chép các nhân để nhớ những thao tác và khái nhiệm khi sử dụng Docker
+Vài ghi chép các nhân để nhớ những thao tác và khái niệm khi sử dụng Docker
 
 Bài dịch, viết có tham khảo ở [https://gist.github.com/wsargent/7049221](https://gist.github.com/wsargent/7049221)
 
