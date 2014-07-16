@@ -33,7 +33,7 @@ Theo tài liệu cách biên dịch như sau:
 Cách biên dịch rất khác các biên dịch các phần mềm khác trên Linux, mở thử file install ra xem có cái gì?
 
 ```bash
-	phpize && ./configure --enable-phalcon && make && make install && echo -e "\nThanks for compiling Phalcon!\nBuild succeed: Please restart your web server to complete the installation"
+	~$ phpize && ./configure --enable-phalcon && make && make install && echo -e "\nThanks for compiling Phalcon!\nBuild succeed: Please restart your web server to complete the installation"
 ```
 
 Chà, PHP có 2 cách chính để cài đặt một module, 1 đó là cài qua `pecl`, 2 là phpize, chúng ta sẽ không cài bằng script của phalcon mà tự cài tay vậy
@@ -53,7 +53,7 @@ B3:
 Trả ra output
 
 ```bash
-	Installing shared extensions:     /usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/
+	Installing shared extensions: /usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/
 ```
 
 Vậy là cài thành công
