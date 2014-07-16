@@ -41,7 +41,6 @@ Lý do mặc định nginx chỉ để 32 bytes cho việc đặt server_name, t
 
 ## c. 500 error trang my/page
 
-
 Khi chép mới hoặc import db mới về.
 	
 ```bash	
