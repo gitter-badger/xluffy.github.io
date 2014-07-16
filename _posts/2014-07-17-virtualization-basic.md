@@ -91,6 +91,12 @@ giúp tạo, quản lý và chạy máy ảo.
 	
 	![Hypervisor](http://i.imgur.com/q1KX9dn.png)
 	
+### Câu trả lời
+
+1. Tại sao OpenVZ tạo máy ảo nhanh => vì bản chất OpenVZ là Container chứ ko phải dạng ảo hóa như KVM
+
+
 ### Issue
 
 Còn 1 vấn đề chưa rõ
+...
