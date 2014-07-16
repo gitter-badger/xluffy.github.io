@@ -14,7 +14,7 @@ lại sử dụng KVM và OpenVZ. Ngoài ra tôi cũng biết những _cái_ ả
 nghệ của M$.
 
 Tuy nhiên thời gian gần đây tôi có đọc về Docker, tôi nhận ra là trước giờ mình chỉ hoàn toàn 
-sử dụng chưa chứ có chút kiến thức căn bản nào về ảo hóa. Vì vậy tôi dành chút thời gian để
+sử dụng chứ chưa có chút kiến thức căn bản nào về ảo hóa. Vì vậy tôi dành chút thời gian để
 tìm hiểu về nó và có trao đổi với anh VietStack nhờ anh giúp đỡ một số tài liệu cơ bản.
 
 ## Những nhập nhằng?
@@ -72,9 +72,9 @@ tạo dựng nhiều môi trường độc lập (mutile isolated user-space ins
 - Instance (hay container, virtualization-engine, jail) nhìn giống như server thật
 
 - Tạm hiểu nó là kỹ thuật siêu cấp của chroot (ai xài Linux sẽ hiểu), nhưng cấp 
-kernel sẽ làm vài thứ để đẩm bảo container này không ảnh hưởng đến container khác.
+kernel sẽ làm vài thứ để đảm bảo container này không ảnh hưởng đến container khác.
 
-- Các giải pháp: Linux ( chroot, Docker, LXC, OpenVZ, Jail), Windows (Parallels Virtuzzo Container,
+- Các giải pháp: Linux (chroot, Docker, LXC, OpenVZ, Jail), Windows (Parallels Virtuozzo Container,
 Sanboxee)
 
 ### Hypervisor
