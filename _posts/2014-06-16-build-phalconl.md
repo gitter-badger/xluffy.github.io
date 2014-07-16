@@ -14,7 +14,7 @@ PHP được biên dịch với các module tùy chọn và prefix khác với p
 	~$ ./configure --prefix=/usr/local/php
 ```
 
-Điều này dẫn tới thư mục chứa các module của php cũng sẽ thay đổi từ `/usr/lib64/php/module/` thành /usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/
+Điều này dẫn tới thư mục chứa các module của php cũng sẽ thay đổi từ `/usr/lib64/php/module/` thành `/usr/local/php/lib/php/extensions/no-debug-non-zts-20121212/`
 
 Vấn đề là giờ nếu ta biên dịch Phalcon, mặc định `phalcon.so` sẽ không chứa trong thư mục module mới, và phalcon có rất ít option, document hướng dẫn về vấn đề này
 
@@ -36,7 +36,7 @@ Cách biên dịch rất khác các biên dịch các phần mềm khác trên L
 	~$ phpize && ./configure --enable-phalcon && make && make install && echo -e "\nThanks for compiling Phalcon!\nBuild succeed: Please restart your web server to complete the installation"
 ```
 
-Chà, PHP có 2 cách chính để cài đặt một module, 1 đó là cài qua `pecl`, 2 là phpize, chúng ta sẽ không cài bằng script của phalcon mà tự cài tay vậy
+Chà, PHP có 2 cách chính để cài đặt một module, 1 đó là cài qua `pecl`, 2 là `phpize`, chúng ta sẽ không cài bằng script của phalcon mà tự cài tay vậy
 
 B1: Comment dòng phía trên trong file install và chạy `./install`
 
