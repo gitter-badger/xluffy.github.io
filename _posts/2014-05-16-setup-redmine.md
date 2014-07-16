@@ -28,9 +28,11 @@ Lí do là do thư mục root của redmine (hiện tại để tại /home/redm
 	~$ chmod 777 /home/redmine/redmine/config.ru
 ```
 
-## b. server_names_hash_bucket_size
+## b. server\_names\_hash\_bucket\_size
 
-Restarting nginx: nginx: [emerg] could not build the server_names_hash, you should increase server_names_hash_bucket_size: 32
+```bash
+	Restarting nginx: nginx: [emerg] could not build the server_names_hash, you should increase server_names_hash_bucket_size: 32
+```
 Lý do mặc định nginx chỉ để 32 bytes cho việc đặt server_name, tăng trong cấu hình lên.
 
 ```bash
