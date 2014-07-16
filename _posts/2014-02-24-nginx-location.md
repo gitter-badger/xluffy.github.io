@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "location trên nginx"
+title:  "Location trên nginx"
 author: xluffy
 date:   2014-02-24
 tags: linux, nginx
-description: "location trên nginx"
+description: "Location trên nginx"
 ---
 
 ### Định nghĩa
