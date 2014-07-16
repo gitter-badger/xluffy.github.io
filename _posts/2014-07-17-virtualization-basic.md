@@ -59,6 +59,7 @@ biệt được Xen Server bản OpenSource và bản thương mại
 
 - Ảo hóa từ lõi, trong kernel
 - Cài đặt trực tiếp trên phần cứng
+
 ![Bare-Metal](http://i.imgur.com/hKTvbqs.png)
 
 ## Phân biệt OS-Level và các loại Hypervisor
