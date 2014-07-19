@@ -21,7 +21,6 @@ nếu có lỗi. Hoặc để debug theo ngày lại phải dùng `grep` để l
 trong vòng 1 tháng là đủ chẳng hạn.
 
 
-
 If you get an error saying
 
 ```
@@ -29,10 +28,10 @@ If you get an error saying
     error: error reading top line of /var/lib/logrotate.status
 ```
 
-delete /var/lib/logrotate.status, and then run logrotate once with -f flag, like
+delete `/var/lib/logrotate.status`, and then run logrotate once with -f flag, like
 
 ```
-    $ ~logrotate -f /etc/logrorate.d/syslog
+    ~$ logrotate -f /etc/logrorate.d/syslog
 ```
 
 This should initialize the status file and the error should not be repeating.
