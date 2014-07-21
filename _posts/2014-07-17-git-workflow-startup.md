@@ -83,28 +83,34 @@ Với `upstream` là remote của official repo.
 
 ### 2.2 Git Branching Off
 
-viết sau
+Braching-Off là kỹ thuật tách nhánh phụ từ nhánh chính. Kỹ thuật này luôn được khuyến cáo sử
+dụng trong mọi trường hợp vì nó giúp giữ source code tại một nhánh luôn stable. Việc đưa code 
+vào nhánh chính đó chỉ được thực hiện qua một kỹ thuật khác và chỉ bởi một vài người có quyền 
+(pull-request, merge-request, merge)
+
+Phải luôn nhớ là bất cứ các thay đổi gì, new-features, fix-bug, hot-fix, docs, api đều phải được
+tạo một branch mới.
 
 ### 2.3. Working with Git
 
 #### 2.3.1 Workflow in Vietnam
 
-![Workflow in Vietnam](http://i.imgur.com/hME1IY2.png)
+![Workflow in Vietnam](http://i.imgur.com/ciFsEmn.png)
 
 Tổng kết thì nó gồm 4 bước chính:
 
-Step 1: Branching-off based on issue
+Step 1: Branching-off based on issue (tách branch dựa trên issue)
 
 Step 2: Developing with Code/ Commit/ Push
 
-Step 3: Submitting pull-request. Waiting for approval or resolving conflict if any.
+Step 3: Submitting pull-request. Waiting for approval or resolving conflict if any. (gửi một pull-request, chờ approval hoặc giải quyết 
+conflict nếu có)
 
 Step 4: Cleaning up branch
 
-Let’s get in more detais:
+Giờ đi vào chi tiết cho từng bước.
 
-
-Step 1: Branching-off based on issue
+##### Step 1: Branching-off based on issue
 
 If you do not know what the meaning of “Branching-off” is, please check Git Branching Off.
 
@@ -140,12 +146,13 @@ Working on bugs
 ```
 Above are the templates Branching off based on an issue’s types.
 
-Step 2: Developing with Code/ Commit/ Push
+##### Step 2: Developing with Code/ Commit/ Push
 
 During your coding, you would make some commit and push, in that case you have to check TWO things:
 
-Quality Checklist
-Git Commit Messages
++ Quality Checklist [tham khảo](http://xluffy.github.io/rule-git-practice/)
++ Git Commit Messages [tham khảo mục 5](http://xluffy.github.io/rule-git-practice/)
+
 If there are some changes from the remote branch (for example, upstream/master) that you need, you have to rebase your
 branch with these updates. It could be done by these commands:
 
@@ -159,10 +166,10 @@ By doing this, your branch will be rebased with updates from others. If it has a
 Editing conflict file.
 The sample on a conflict file:
 
-_images/conflict-mark.png
+![Imgur](http://i.imgur.com/wBfCXD1.png)
 The sample on a resolved-conflict file:
 
-_images/conflict-resolved.png
+![Imgur](http://i.imgur.com/wBfCXD1.png)
 Adding conflict-resolved-file in git, then continuing to rebase.
 
 ```bash
@@ -177,31 +184,44 @@ After finishing your work, add changed files to commit and push your branch:
 	~$ git push origin [your-branch-name]
 ```
 
-Step 3: Submitting Pull-request
+##### Step 3: Submitting Pull-request
 
 When your issue branch is pushed, submit pull-request for reviewing on your work. There are TWO steps in submitting a pull-request:
 
 Create Pull-request for your code.
 Open the Create Pull Request form:
-_images/submit-pull-request-code-1.png
+
 Input the neccessary information into the form:
 
-_images/create-pull-request-form.png
 Copy the pull request link on the browser’s address bar.
 
 Add Pull-request to your issue.
 Open your issue –> Click Workflow –> Click Send Pull Request.
 
-_images/submit-pull-request-issue.png
 Paste the pull request link into the Pull Request URL, then click Send Pull Request in the Send Pull Request form.
 
-_images/send-pull-request-form.png
 Note After a pull request, you will continue to work on your working branch as normal, just push it and the pull request will be 
 updated with your new commits. Ping other Teraciers to help reviewing, comments, suggestions, etc.
 
 When you meet all these long strict requirements, your work will be more welcomed accepted.
 
-Step 4 : Cleaning up branch
+##### Step 4 : Cleaning up branch
 
 After your code get reviewed and approved. It will be merged to the offical repository, so you have to make a Git Branch Cleaning Up
 to clean up your local and get ready for the next issue.
+
+Deleting remote branch:
+
+```
+	~$ git push origin :branch_name
+```
+
+Deleting local branch:
+
+```
+	~$ git checkout master
+	~$ git branch -d branch_name
+```
+
+References
+[http://sethrobertson.github.io/GitBestPractices/](http://sethrobertson.github.io/GitBestPractices/)
