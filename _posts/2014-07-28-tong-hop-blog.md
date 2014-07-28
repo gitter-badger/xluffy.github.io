@@ -76,7 +76,7 @@ Chia sẻ những công cụ `nhỏ` hỗ trợ công việc quản trị hệ t
 
 - Envato một cty công nghệ của Úc với các site ThemeForest, Tuts+ [http://webuild.envato.com/](http://webuild.envato.com/)
 
-- StackExchange [http://blog.stackoverflow.com/](http://blog.stackoverflow.com/)
+- StackExchange aka StackOverFlow[http://blog.stackoverflow.com/](http://blog.stackoverflow.com/)
 
 
 
