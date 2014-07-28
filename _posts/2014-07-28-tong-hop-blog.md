@@ -28,49 +28,49 @@ Chia sẻ những công cụ `nhỏ` hỗ trợ công việc quản trị hệ t
 
 - Twitter [https://engineering.twitter.com/](https://engineering.twitter.com/) và [https://blog.twitter.com/developer](https://blog.twitter.com/developer)
 
-- Facebook https://code.facebook.com/
+- Facebook [https://code.facebook.com/](https://code.facebook.com/)
 
-- Google http://research.google.com/
+- Google [http://research.google.com/](http://research.google.com/)
 
-- Tumlbr http://engineering.tumblr.com/
+- Tumlbr [http://engineering.tumblr.com/](http://engineering.tumblr.com/)
 
-- Yahoo https://developer.yahoo.com/
+- Yahoo [https://developer.yahoo.com/](https://developer.yahoo.com/)
 
-- Linkedin https://engineering.linkedin.com/technology
+- Linkedin [https://engineering.linkedin.com/technology](https://engineering.linkedin.com/technology)
 
-- Github https://github.com/blog
+- Github [https://github.com/blog](https://github.com/blog)
 
-- Groupon https://engineering.groupon.com/
+- Groupon [https://engineering.groupon.com/](https://engineering.groupon.com/)
 
-- Atlassian https://blogs.atlassian.com/
+- Atlassian [https://blogs.atlassian.com/](https://blogs.atlassian.com/)
 
-- Dropbox https://tech.dropbox.com/
+- Dropbox [https://tech.dropbox.com/](https://tech.dropbox.com/)
 
-- Quora http://engineering.quora.com/
+- Quora [http://engineering.quora.com/](http://engineering.quora.com/)
 
-- Netflix http://techblog.netflix.com/
+- Netflix [http://techblog.netflix.com/](http://techblog.netflix.com/)
 
-- Foursquare http://engineering.foursquare.com/
+- Foursquare [http://engineering.foursquare.com/](http://engineering.foursquare.com/)
 
-- Disqus http://engineering.disqus.com/
+- Disqus [http://engineering.disqus.com/](http://engineering.disqus.com/)
 
-- Etsy http://codeascraft.com/
+- Etsy [http://codeascraft.com/](http://codeascraft.com/)
 
-- Flickr http://code.flickr.net/
+- Flickr [http://code.flickr.net/](http://code.flickr.net/)
 
-- Cloudera http://blog.cloudera.com/
+- Cloudera [http://blog.cloudera.com/](http://blog.cloudera.com/)
 
-- Soundcloud https://developers.soundcloud.com/
+- Soundcloud [https://developers.soundcloud.com/](https://developers.soundcloud.com/)
 
-- Last.fm http://blog.last.fm/
+- Last.fm [http://blog.last.fm/](http://blog.last.fm/)
 
-- Pinterest http://engineering.pinterest.com/
+- Pinterest [http://engineering.pinterest.com/](http://engineering.pinterest.com/)
 
-- Slideshare http://engineering.slideshare.net/
+- Slideshare [http://engineering.slideshare.net/](http://engineering.slideshare.net/)
 
-- Paypal https://www.paypal-engineering.com/
+- Paypal [https://www.paypal-engineering.com/](https://www.paypal-engineering.com/)
 
-- Tech Blog của Box.com http://tech.blog.box.com/
+- Tech Blog của Box.com [http://tech.blog.box.com/](http://tech.blog.box.com/)
 
-- Enginnering của Yelp http://engineeringblog.yelp.com/
+- Enginnering của Yelp [http://engineeringblog.yelp.com/](http://engineeringblog.yelp.com/)
 
