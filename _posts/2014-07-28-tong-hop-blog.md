@@ -26,7 +26,7 @@ Chia sẻ những công cụ `nhỏ` hỗ trợ công việc quản trị hệ t
 
 ### Link
 
-- Twitter https://engineering.twitter.com/ và https://blog.twitter.com/developer
+- Twitter [https://engineering.twitter.com/](https://engineering.twitter.com/) và [https://blog.twitter.com/developer](https://blog.twitter.com/developer)
 
 - Facebook https://code.facebook.com/
 
