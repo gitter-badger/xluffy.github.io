@@ -19,7 +19,10 @@ công cụ và có thể nó sẽ hữu ích cho một công ty công nghệ nà
 Ngoài việc chia sẻ và phát triển phần mềm, các blog này còn chia sẻ `giải pháp` về hệ thống, về network rất hữu ích cho
 nhưng người làm về hệ thống.
 
-Chia sẻ về quá trình, hướng phát triển phần mềm, quy trình làm việc của team....
+Chia sẻ về quá trình, hướng phát triển phần mềm, quy trình làm việc của team... Việc chia sẻ quy trình làm việc, quy trình
+phát triển cực kỳ hữu ích cho các công ty công nghệ, start-up, các công ty về thương mại điện tử mà có phần core là tech. 
+Một ví dụ đơn giản là dùng cái gì để quản lý mã nguồn (git, svn, mercurial ...), lý do, bug tracker (redmine, jira), workflow, 
+deployment, testing...
 
 Chia sẻ những công cụ `nhỏ` hỗ trợ công việc quản trị hệ thống, phân tích dữ liệu, nâng cao hiệu suất hệ thống...
 
