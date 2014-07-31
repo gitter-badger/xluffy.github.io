@@ -7,13 +7,13 @@ tags: php-fpm, linux, config
 description: "Các thông số cấu hình của php-fpm"
 ---
 
-+ pm = dynamic: Số lượng tiến trình con (child process) được thiết lập tự động dựa trên các thông số pm.max_children, pm.start_servers,
++ pm = dynamic: Số lượng tiến trình con (child process) được thiết lập tự động dựa trên các thông số pm.max\_children, pm.start\_servers,
 pm.min\_spare\_servers, pm.max\_spare\_servers.
 
 Khác với pm = static: Số lượng tiến trình con sẽ được fix cứng, đó là giá trị pm.max_children
 
-+ pm.max_children = 10: Đối với pm = static, nó là số lượng các tiến trình con được tạo ra. Đối với pm =dynamic, nó là số lượng tiến trình
-con tối đa được tạo ra. Tùy chọn này đặt ra một giới hạn về số lượng yêu cầu được phục vụ đồng thời tương đương với MaxClients ở mpm_prefork.
++ pm.max\_children = 10: Đối với pm = static, nó là số lượng các tiến trình con được tạo ra. Đối với pm =dynamic, nó là số lượng tiến trình
+con tối đa được tạo ra. Tùy chọn này đặt ra một giới hạn về số lượng yêu cầu được phục vụ đồng thời tương đương với MaxClients ở mpm\_prefork.
 
 Con số này thường được tính toán như sau: 
 
