@@ -200,22 +200,23 @@ Trong trường hợp bạn commit sai một cái gì đó, có thể sử dụn
 
 #### 9.1 List
 
-To see a full list of commits, use:
+Để xem full-list các commit, sử dụng:
 
 ```bash
 	~$ git log
 ```
 
-To see the list of commit messages only, use:
+Chỉ xem commit-message, và trên 1 dòng:
 
 ```bash
-	~$ git log --online
+	~$ git log --oneline
 ```
-Press [Enter] to scroll the list till the end or press q to quit.
+
+Nhấn [Enterơ] để cuộn trang và [q] để thoát.
 
 #### 9.2 Search
 
-To search commit logs matching a specific pattern, use:
+Để search một commit-log khớp với một pattern cụ thể nào đó, sử dụng:
 
 ```bash
 	~$ git log -g --grep=<pattern>
