@@ -37,7 +37,7 @@ Theo quy ước, có 2 remote repositories được sử dụng thường xuyên
 
 #### 3.1 remote add
 
-To add a remote repository and to keep track of it.
+Dùng để add một repo ở xa và theo dõi nó
 
 ```bash
 	~$ git remote add <remote_name> <remote_git_url>
@@ -45,7 +45,7 @@ To add a remote repository and to keep track of it.
 
 ### 3.2 remote list
 
-To list all the remote repositories you tracked on the local repository:
+Dùng để liệt kê tất các repo ở xa mà bạn đang theo dõi trên repo ở local:
 
 ```bash
 	~$ git remote -v
@@ -53,7 +53,7 @@ To list all the remote repositories you tracked on the local repository:
 
 #### 3.3 remote update
 
-To change/ update a remote repository URL:
+Dùng để thay đổi/cập nhật lại URL của một repo ở xa:
 
 ```bash
 	~$ git remote set-url <remote_name> <new_url> <old_url>
@@ -61,7 +61,7 @@ To change/ update a remote repository URL:
 
 #### 3.4 remote delete
 
-Don’t want to keep track of a remote repository, then remove (rm) it:
+Bạn không muốn theo dõi repo ở xa nữa, xóa nó đi:
 
 ```bash
 	~$ git rm <remote_name>
@@ -71,9 +71,9 @@ Don’t want to keep track of a remote repository, then remove (rm) it:
 
 #### 4.1 Branching off
 
-When there is an issue that you are going to work, the first thing you need to do is to create a new working branch to make any changes on it.
+Khi có một issue, bạn sẽ cần làm việc, đầu tiên cần tạo một working-branch mới để tạo các thay đổi
 
-For example, I am going to work on the issue #1 with the title: “Cleaning up the project” of the enhancement type:
+Ví dụ, tôi làm việc trên issue #1 với tiêu đề: “Cleaning up the project”:
 
 ```bash
 	~$ cd working_hard/
@@ -82,20 +82,23 @@ For example, I am going to work on the issue #1 with the title: “Cleaning up t
 	~$ git push origin enhance_1_project_clean_up
 ```
 	
-What do the above commands do? First, we need to cd to the working repository. Then get the latest updates from upstream repository (official repository). 
-Then branch off (copy) upstream/develop branch content into local branch with name enhance\_1\_project\_clean\_up. Then we push this branch into the origin 
-repository (full permission repository).
+Các lệnh trên có ý nghĩa gì và làm gì? Đầu tiên, chúng ta cần chuyển vào working repository. Sau đó lấy code mới nhất về từ upstream repository 
+(official repository). 
+
+Sau đó branch off nội dung (copy) branch upstream/develop  vào local branch với tên là enhance\_1\_project\_clean\_up. Sau đó push branch này 
+lên origin repository (full permission repository).
 
 #### 4.2 Listing branches
 
-To see the list of branches on your local repository::
+Liệt kê tất cả các branch ở local và cả remote (-a):
 
 ```bash
 	~$ git branch
 	~$ git branch -v
 	~$ git branch -a
 ```
-You could see something similar like this:
+
+Đại loại bạn có thể thấy một số kết quả như sau:
 
 ```bash
 	* docs_10_useful_most_used_git_commands
@@ -106,11 +109,12 @@ You could see something similar like this:
 	master
 	origin/enhance_4_simpler_entry_access
 ```
-The asterisk symbol (*) shows which branch you are currently working on.
+
+Với ký hiệu (*) chỉ branch mà bạn đang đứng làm việc.
 
 3. Switching branches
 
-To switch to another branch:
+Để chuyển qua một branch khác:
 
 ```bash
 	~$ git checkout branch_name
@@ -118,8 +122,8 @@ To switch to another branch:
 
 ### 5. Fetch
 
-Fetching is usually used to get new updated from a remote repository and you could rebase or merge remote branch’s updates into your 
-current working branch on the local repository.
+Fetching là một lệnh được sử dụng cực kỳ thường xuyên, mục đích để lấy code mới từ remote repository và bạn có thể rebase hoặc 
+merge những update đó vào working-branch hiện tại bạn đang làm việc ở local.
 
 ```bash
 	~$ git fetch upstream
@@ -128,8 +132,8 @@ current working branch on the local repository.
 
 ### 6. Status
 
-One of the most used command to see which files/folders are changed on the currently working branch and get suggestions command to 
-add/ remove/ discard these changes.
+Một lệnh khác cũng được thường xuyên sử dụng để xem các file/folder nào đã được thay đổi trên working-branch hiện tại và suggest các
+lệnh như add/remove/discard những thay đổi đó.
 
 ```bash
 	~$ git status
@@ -137,18 +141,19 @@ add/ remove/ discard these changes.
 
 ### 7. Diff
 
-To see the differences before and after your changes:
+Để hiển thị sự khác nhau trước và sau thay đổi của bạn:
 
 ```bash
 	~$ git diff
 ```
 
-If your changed files/folders are already added to the committed list, it means you have used the git add command, use the command below:
+Nếu thay đổi của bạn trên file/folder đã được add và danh sách commit, điều đó có nghĩa là bạn có sử dụng `git add`, sử dụng lệnh dưới:
 
 ```bash
 	~$ git diff --cached
 ```
-Note You should enable the color mode of git, it is easier to see the changes with colors.
+
+Lưu ý, nên bật color-mode cho git, cho dễ nhìn
 
 ```bash
 	~$ git config --global color.ui true
@@ -156,41 +161,40 @@ Note You should enable the color mode of git, it is easier to see the changes wi
 
 ### 8. Commit
 
-When making changes to the local repository, these changes must be tracked and committed. To see the changes, 
-use `git status`. To commit the changes, use the following commands:
+Khi tạo ra thay đổi trên local-repo, những thay đổi đó cần phải được theo dõi và xác nhận. Xem thay đổi bằng
+`git status` và xác nhận thay đổi đó bằng lệnh đưới:
 
 ```bash
 	~$ git add .
 	~$ git commit -a
 ```
 
-The git add . or git add -A command allows you to add all changed files/folder to the committed list. If you just
-want to commit some of these files/folders, you should use the command below instead:
+Lệnh `git add .` hoặc ` git add -A` là lệnh cho phép add tất cả các thay đổi của file/folder vào danh sách chờ 
+xác nhận. Nếu chỉ muốn xác nhận một vài file/folder, bạn có thể sử dụng lệnh sau:
 
 ```bash
 	~$ git add [path_to_files]
 	~$ git commit -a
 ```
 
-And the terminal will open a default editor (usually vim on linux, mac), add your commit message, write and quite 
-(vim: press [i] to enter edit mode, then [ESC] to go into view mode, then :wq to write changes and quit).
+Và terminal sẽ mở một chương trình editor mặc đinh (vim, nano chẳng hạn), bạn viết __thông điệp xác nhận__. Với
+vim nhấn [i] để vào chế độ Insert, sau đó [ESC] để về chế độ view, và :wq để lưu và thoát.
 
-You can add your commit message directly to your commit without the vim editor by using the command below instead of 
-git commit -a:
+Hoặc có thể add __thông điệp xác nhận__ trực tiếp mà không cần thông qua editor bằng lệnh sau 
 
 ```bash
 	~$git commit -m "<issue_key>|git commit message"
 ```
 
-There are cases when you missed something and you want to add more changes into the latest commit:
+Trong trường hợp bạn commit sai một cái gì đó, có thể sử dụng lệnh sau để thay đổi (lưu ý chỉ lần commit cuối cùng)
 
 ```bash
 	~$ git add .
 	~$ git commit --amend
 ```
 
-`git commit --amend` will allow you to add more changes into the latest commit and edit the commit message. 
-Even if you do not want to add any changes but to edit the latest commit message, you should use this command.
+`git commit --amend` cho phép sửa những thay đổi, nhưng nếu chỉ muốn sửa mỗi thông điệp mà vẫn giữ nguyên những file/folder
+đã thay đổi thì cũng có thể sử dụng lệnh này.
 
 ### 9. Log
 
