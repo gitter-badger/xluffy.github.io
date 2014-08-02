@@ -17,8 +17,7 @@ p { margin: 1em 0; }
 
 body {
    background-color: #ecf0f1;
-   /*font-family: 12px Tahoma, 'Times New Roman', sans-serif;*/
-   font-family: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
+   font-family: 12px Tahoma, 'Times New Roman', sans-serif;
    /*font: 13.34px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
    font-size: small;
    /*-webkit-font-smoothing: antialiased;*/
