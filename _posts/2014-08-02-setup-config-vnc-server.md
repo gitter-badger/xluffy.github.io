@@ -20,13 +20,13 @@ Lần này bắt buộc phải cài nên đành viết lại để mà nhớ
 
 ### Với Ubuntu
 
-Step 1: Cài giao diện để có cái mà remote, ở đây cài xfce4 cho nhẹ
+Step1: Cài giao diện để có cái mà remote, ở đây cài xfce4 cho nhẹ
 
 ```bash
 	~$ apt-get -y install ubuntu-desktop tightvncserver xfce4 xfce4-goodies
 ```
 
-Step 2: Add user và set password
+Step2: Add user và set password
 
 ```bash
 	~$ adduser xluffy
@@ -47,7 +47,7 @@ Thiết lập VNC passwd
 	exit
 ```
 
-Step 3: Init script
+Step3: Init script
 
 Đặt tại `/etc/init.d/vncserver`
 
@@ -108,7 +108,7 @@ Tự start khi khởi động
 	~$ update-rc.d vncserver defaults
 ```
 
-Step 5: Connect từ client
+Step5: Connect từ client
 
 Tải VNC view về máy tính 
 
@@ -122,50 +122,6 @@ Và xong
 
 ![Xfce4](http://i.imgur.com/nMertRl)
 
-### Trên CentOS
-
-Về bản chất là như nhau, có một điểm khác là cần cấu hình file config
-
-```bash
-	~$ yum groupinstall Desktop
-	~$ yum install tigervnc-server
-	~$ yum install xorg-x11-fonts-Type1
-	~$ yum install vnc
-```
-
-Các bước tạo user và set vncpasss là như trên Ubuntu
-
-Thêm một bước cấu hình như sau
-
-```bash
-	~$ nano /etc/sysconfig/vncservers
-```
-
-Ví dụ cấu hình cho 2 user có thể remote-desktop
-
-```bash
-	VNCSERVERS="1:xluffy 2:few"
-	VNCSERVERARGS[1]="-geometry 1024x600"
-	VNCSERVERARGS[2]="-geometry 1024x600"
-```
-
-Kill 
-
-```bash
-	~$ vncserver -kill :1
-```
-
-```
-	~$ nano /home/xluffy/.vnc/xstartup
-	#twm & 
-	exec gnome-session &	
-```
-
-LƯU Ý:
-
-- Tôi bị nhầm là VNC sẽ dùng chung session với khi truy cập trực tiếp 
-
-- Ubuntu tôi dùng xfce4, CentOS là gnome, nên phần xstartup có khác nhau, start các DE khác nhau
 
 
 
