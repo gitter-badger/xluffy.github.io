@@ -123,7 +123,9 @@ Với ký hiệu (*) chỉ branch mà bạn đang đứng làm việc.
 ### 5. Fetch
 
 Fetching là một lệnh được sử dụng cực kỳ thường xuyên, mục đích để lấy code mới từ remote repository và bạn có thể rebase hoặc 
-merge những update đó vào working-branch hiện tại bạn đang làm việc ở local.
+merge những update đó vào working-branch hiện tại bạn đang làm việc ở local. Bạn nên lưu ý là featching chỉ lấy các thay đổi 
+mới nhất từ kho xa về kho local của bạn chứ chưa thay đổi trên nhánh mà bạn đang làm việc, bạn cần phải merge từ kho local vào
+nhánh bạn đang làm việc để cập nhật những thay đổi đó.
 
 ```bash
 	~$ git fetch upstream
@@ -212,7 +214,7 @@ Chỉ xem commit-message, và trên 1 dòng:
 	~$ git log --oneline
 ```
 
-Nhấn [Enterơ] để cuộn trang và [q] để thoát.
+Nhấn [Enter] để cuộn trang và [q] để thoát.
 
 #### 9.2 Search
 
@@ -224,25 +226,32 @@ Nhấn [Enterơ] để cuộn trang và [q] để thoát.
 
 ### 10. Push
 
-After some commits and you would like to push them into the origin repository, do as follows:
+Sau  một và xác nhận, bạn có thể muốn push nó lên origin repository, làm như sau:
 
 ```bash
 	~$ git push origin enhance_1_project_clean_up
 ```
 
-Sometimes when there is diversity which means there are difference between git commit list on the local and remote branch, git does not allow you to push. In that case, you need to force push (means that you want to have you local changes put into the origin repository, keep only commit history of local repository.
+Một vấn đề có thể xảy ra khi bạn đẩy dữ liệu lên kho xa đó là đồng nghiệp có thể cũng đang đẩy "đồng thời" nên một nhánh của cùng một kho.
+Nếu bạn là người thực hiện sau một chút, thì git không cho phép bạn ghi đè nên kết quả của người kia. Git sẽ dùng git log trên server ở xa
+kiểm tra xem kho local của bạn đã quá hạn chưa. Nếu quá hạn, git sẽ từ chối và bạn cần fetch về và trộn lại trước khi đẩy lên kho xa.
 
 ```bash
-	~$ git push origin enhance_1_project_clean_up -f
+	~$ git push origin master
+	To git@github.com:xluffy/bike.git
+	 ! [rejected]        master -> master (non-fast-forward)
+	error: failed to push some refs to 'git@github.com:xluffy/bike.git'
+	To prevent you from losing history, non-fast-forward updates were rejected
+	Merge the remote changes before pushing again.  See the 'Note about
+	fast-forwards' section of 'git push --help' for details.
 ```
 
-If you want to keep the origin and make the local changes to resolve different commit list, you can use git rebase to make the history be fast-forwarded.
+Để sửa
 
-Fast-forward means that your local repository is in sync with remote repository with some additional commits. When you push, the additional commits will be appended into remote history repository.
-
-WARNING: force push can make you lost some commits if you are not careful enough. This is true when you merge work from other branches into your local branch. In such case, you could use git reflog, find the hash commit and git reset --hard <hash> to get back the changes.
-
-Note NEVER EVER force push the official repositories.
+```bash
+	~$ git fetch origin
+	~$ git merge origin/master
+```
 
 ### 11. Rebase
 
