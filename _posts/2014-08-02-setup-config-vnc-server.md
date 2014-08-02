@@ -80,7 +80,7 @@ Step3: Init script
 	exit 0
 ```
 
-Edit /home/xluffy/.vnc/xstartup 
+Edit `/home/xluffy/.vnc/xstartup`
 
 ```bash
 	#!/bin/sh
@@ -112,15 +112,15 @@ Step5: Connect từ client
 
 Tải VNC view về máy tính 
 
-[VNC-View](http://i.imgur.com/IJPrWR7.png)
+[!VNC-View](http://i.imgur.com/IJPrWR7.png)
 
 Nhập password ở bước vncpasss
 
-[Pass](http://i.imgur.com/UVGhCxv)
+[!Pass](http://i.imgur.com/UVGhCxv)
 
 Và xong
 
-[Xfce4](http://i.imgur.com/nMertRl)
+[!Xfce4](http://i.imgur.com/nMertRl)
 
 
 
