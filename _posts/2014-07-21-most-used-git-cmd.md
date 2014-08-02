@@ -260,15 +260,18 @@ If there is any conflict, resolve it, then $ git add . and $ git commit -a. Do i
 merge is used to join 2 or more commit histories together (from different branches).
 
 ### 13. Pull request
-This concept is not introduced by git but github, which means that you do not have any git command here. Pull request is done on the web UI of github (bitbucket) to notify the upstream that your work is great, finished and you want your work to be merged into the upstream repository.
+
+Khái niệm này không được giới thiệu bởi git mà bởi github, nó không phải là một lệnh trong git. Pull Requesst là một hành động trên web UI 
+của github (bitbucket) để thông báo với upstream, bạn đã hoàn thành công việc và muốn merge vào upstream repo 
 
 ### 14. Reset
-Reset means that you could set the working branch to a specific commit history and see all the changes.
+
+Reset có nghĩa là bạn muốn thiết lập working-branch về một commit-history cụ thể nào đó và cả các thay đổi 
 
 ```bash
 	~$ git reset HEAD~<index>
 ```
-or:
+hoặc
 
 ```bash
 	~$ git reset <commit_hash_id>
@@ -302,8 +305,8 @@ To reset the working branch to a remote branch:
 
 #### 15.1 stash it
 
-stash is a stack and is usually used when you want to store temporarily changes from a working branch instead of committing these changes 
-to switch to another branch. stash is a stack like. Usually, you need to store all the changes:
+stash là một ngăn xếp (stack) và nó rất thường được sử dụng khi bạn muốn lưu những thay đổi một cách tạm thời từ working-branch mà không
+nhất thiết phải commit để chuyển qua một branch khác, stash hoạt động giống như stack. Thường, bạn cần lưu tạm lại các thay đổi
 
 ```bash
 	~$ git add .
@@ -312,14 +315,14 @@ to switch to another branch. stash is a stack like. Usually, you need to store a
 
 #### 15.2 stash list
 
-To see all the stashed list:
+Xem tất cả danh sách stash:
 
 ```bash
 	~$ git stash list
 ```
 #### 15.3 show it
 
-To show the changes from a specific stash:
+Xem thay đổi của một stash cụ thể:
 
 ```bash
 	~$ git stash show stash@{<index>}
@@ -327,14 +330,15 @@ To show the changes from a specific stash:
 
 #### 15.4 apply it
 
-When switching back the repository having stash, you could get the changes from stash.
+Khi switch lại repository có chứa stash, bạn có thể lấy lại các thay đổi từ stash và làm việc tiếp.
 
-To get the latest stashed content and apply changes to the current working branch:
+Để lấy lại nội dung stash cuối cùng và apply các thay đổi đó vào working-branch hiện hành:
 
 ```bash
 	~$ git stash apply
 ```
 
+Để apply thay đổi của một stash cụ thể vào working-branch hiện hành
 To apply changes from a specific stash into the current
 working branch:
 
@@ -364,7 +368,8 @@ When working, you “commit early, commit often”, and you get a list of commit
 Use s instead of pick for the commits you want to squash.
 
 ### 17. Learn More
-You can learn more git commands by using one of the following commands to open the Help page, or ask us, Teraciers, for work and practice.
+
+Bạn có thể học thêm nhiều lệnh git bằng cách sử dụng lệnh sau để mở Help hoặc
 
 ```bash
 	~$ git --help
