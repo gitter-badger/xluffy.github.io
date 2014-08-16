@@ -73,10 +73,10 @@ Tạo file VirtualHost cho Redmine với nội dung sau:
 Restart lại apache để cập nhật
 
 ```bash
-	$~ /etc/init.d/httpd restart
+	~$ /etc/init.d/httpd restart
 ```
 
-Plugin để đăng nhập bằng Google Account: [[https://github.com/twinslash/redmine_omniauth_google|https://github.com/twinslash/redmine_omniauth_google]]
+Plugin để đăng nhập bằng Google Account: [https://github.com/twinslash/redmine_omniauth_google](https://github.com/twinslash/redmine_omniauth_google)
 
 
 ### Sử dụng nginx và Passenger
@@ -88,12 +88,12 @@ Sử dụng Nginx + Passenger để chạy Redmine
 Việc cài đặt Passenger yêu cầu rebuild lại nginx, cấu hình như sau:
 
 
-```bash
-	~$ passenger_root /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.42;
-	~$ passenger_ruby /usr/local/bin/ruby;
-	~$ passenger_pool_idle_time  0;
-	~$ passenger_max_pool_size   30;
-	~$ passenger_max_instances_per_app 2;
+```ruby
+	passenger_root /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.42;
+	passenger_ruby /usr/local/bin/ruby;
+	passenger_pool_idle_time  0;
+	passenger_max_pool_size   30;
+	passenger_max_instances_per_app 2;
 ```
 
 Cấu hình redmine
