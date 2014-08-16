@@ -152,13 +152,13 @@ Dùng fabric, code như sau:
 		run("/etc/init.d/php-fpm reload")
 ```
 
-Các bước chạy để deploy tag 0.7 trên stag
+Các bước chạy để deploy tag v0.1beta trên prod
 
 ```bash
 	~$ fab web_prod update:v0.1beta
 	~$ fab web_prod setup:v0.1beta
 	~$ fab web_prod clear_cache
-</code>
+```
 
 
 
