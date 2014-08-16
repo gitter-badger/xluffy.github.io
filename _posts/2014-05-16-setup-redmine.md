@@ -76,7 +76,7 @@ Restart lại apache để cập nhật
 	~$ /etc/init.d/httpd restart
 ```
 
-Plugin để đăng nhập bằng Google Account: [https://github.com/twinslash/redmine_omniauth_google](https://github.com/twinslash/redmine_omniauth_google)
+Plugin để đăng nhập bằng Google Account: [https://github.com/twinslash/redmine\_omniauth\_google](https://github.com/twinslash/redmine_omniauth_google)
 
 
 ### Sử dụng nginx và Passenger
