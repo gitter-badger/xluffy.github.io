@@ -9,11 +9,110 @@ description: "Cài đặt redmine làm bug tracker và project management"
 
 # 1. Chép source và import db
 
-Chạy `bundle install` thiếu gói cài
+Dowload mã nguồn tại [đây](http://svn.redmine.org/redmine/branches/2.3-stable) thông qua svn
 
 ```bash
-	~$ yum install postgresql-devel	
-	~$ yum install ImageMagick-devel
+	~$ cd /home/redmine
+	~$ svn co http://svn.redmine.org/redmine/branches/2.3-stable redmine
+```
+Config database connection:
+
+```
+	~$ cp config/database.yml.example config/database.yml
+	~$ vim config/database.yml
+```
+
+Install pre-requires
+
+
+```bash
+	~$ yum install ruby ruby-devel rubygems ImageMagick ImageMagick-devel postgresql postgresql-devel -y
+	~$ gem install bundler
+	~$ bundle install --without development test
+```
+Install/Upgrade database
+
+```ruby
+	rake db:migrate RAILS_ENV=production 
+	rake redmine:plugins:migrate RAILS_ENV=production
+```
+
+Config to run with Apache+mod_fastcgi
+
+
+```bash
+	~$ yum install mod_cgi mod_fastcgi fcgi fcgi-devel
+	~$ gem install fcgi
+	~$ cd public/
+	~$ mv htaccess.fcgi.example .htaccess
+	~$ mv dispatch.fcgi.example dispatch.fcgi
+	~$ chmod 755 dispatch.fcgi
+	~$chown apache:apache -R *
+```
+
+Tạo file VirtualHost cho Redmine với nội dung sau:
+
+```
+	Listen *:80
+
+	<VirtualHost *:80>
+			DocumentRoot /home/redmine/public
+			ErrorLog logs/redmine_error_log
+
+			#MaxRequestLen 20000000
+
+			<Directory "/home/redmine/public">
+					Options Indexes ExecCGI FollowSymLinks
+					Order allow,deny
+					Allow from all
+					AllowOverride all
+			</Directory>
+	</VirtualHost>
+```
+
+Restart lại apache để cập nhật
+
+```bash
+	$~ /etc/init.d/httpd restart
+```
+
+Plugin để đăng nhập bằng Google Account: [[https://github.com/twinslash/redmine_omniauth_google|https://github.com/twinslash/redmine_omniauth_google]]
+
+
+### Sử dụng nginx và Passenger
+
+
+Sử dụng Nginx + Passenger để chạy Redmine
+
+
+Việc cài đặt Passenger yêu cầu rebuild lại nginx, cấu hình như sau:
+
+
+```bash
+	~$ passenger_root /usr/local/lib/ruby/gems/2.0.0/gems/passenger-4.0.42;
+	~$ passenger_ruby /usr/local/bin/ruby;
+	~$ passenger_pool_idle_time  0;
+	~$ passenger_max_pool_size   30;
+	~$ passenger_max_instances_per_app 2;
+```
+
+Cấu hình redmine
+
+```
+server {
+  listen *:80;
+
+  server_name projects.abc.xyz;
+  add_header sid redmine;
+  server_tokens off;
+
+  root /home/redmine/public;
+  passenger_enabled on;
+  passenger_user nginx;
+  passenger_load_shell_envvars off;
+  access_log  /var/log/nginx/redmine_access.log;
+  error_log   /var/log/nginx/redmine_error.log;
+}
 ```
 
 # 4. Troubleshooting
