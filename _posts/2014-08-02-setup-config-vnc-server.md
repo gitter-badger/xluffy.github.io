@@ -36,7 +36,7 @@ Step 2: Add user và set password
 Cấp sudo
 
 ```bash
-	~$ echo "xluffy ALL=(ALL)       ALL" >> /etc/sudoers
+	~$ echo "xluffy ALL=(ALL) ALL" >> /etc/sudoers
 ```
 
 Thiết lập VNC passwd
@@ -116,11 +116,11 @@ Tải VNC view về máy tính
 
 Nhập password ở bước vncpasss
 
-![Pass](http://i.imgur.com/UVGhCxv)
+![Pass](http://i.imgur.com/UVGhCxv.png)
 
 Và xong
 
-![Xfce4](http://i.imgur.com/nMertRl)
+![Xfce4](http://i.imgur.com/nMertRl.png)
 
 ### Trên CentOS
 
@@ -163,9 +163,9 @@ Kill
 
 LƯU Ý:
 
-- Tôi bị nhầm là VNC sẽ dùng chung session với khi truy cập trực tiếp 
+- VNC không dùng chung session với khi truy cập trực tiếp 
 
-- Ubuntu tôi dùng xfce4, CentOS là gnome, nên phần xstartup có khác nhau, start các DE khác nhau
+- Ubuntu  dùng xfce4, CentOS là gnome, nên phần xstartup có khác nhau, start các DE khác nhau
 
 
 
