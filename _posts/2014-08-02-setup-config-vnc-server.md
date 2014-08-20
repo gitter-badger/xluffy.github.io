@@ -167,6 +167,9 @@ LƯU Ý:
 
 - Ubuntu  dùng xfce4, CentOS là gnome, nên phần xstartup có khác nhau, start các DE khác nhau
 
+- Để remote thì bắt buộc phải có giao diện, bản chất dùng Desktop Environment nào cũng được Gnome, KDE, Xfce4, Lxde hay các Window Manager
+như OpenBox nhưng tốt nhất thì chọn mấy DE nhẹ nhẹ như xfce4, hay lxde cho bớt lag và cài cũng nhanh
+
 
 
 
