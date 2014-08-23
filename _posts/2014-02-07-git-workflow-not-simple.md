@@ -13,7 +13,7 @@ description: git workflow
 Đây là một workflow rất đơn giản khi sử dụng git. Nó (và các biến thể) được sử 
 dụng bởi rất nhiều người. Tôi đã chọn nó sau khi sử dụng nó rất hiệu quả tại
 [Athena](http://athena.ai). [GitHub](https://github.com) cũng làm điều gì đó tương
-tự; Zach Holman đề cập đến nó trong [this talk](http://www.youtube.com/watch?v=qyz3jkOBbQY&t=09m12s).
+tự; Zach Holman đề cập đến nó trong [this talk](http://www.youtube.com/watch?v=qyz3jkOBbQY&t=09m12s)
 
 ### Các ý chính
 

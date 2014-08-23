@@ -6,8 +6,18 @@ date:   2014-02-09
 tags: nginx, system, limit
 description: 
 ---
+### Vấn đề?
 
-If you are getting error “Too many open files (24)” then your application/command/script is hitting max open file limit allowed by linux. You need to increase open file limit as below:
+Lỗi này thường xảy ra đối với web-service khi chịu một lượng truy cập lớn. Vậy tại sao khi lượng truy cấp lớn thì lại có thông báo lỗi
+liên quan đến file?
+
+Nếu bạn đã xài Linux một thời gian, bạn sẽ biết rằng mọi thứ trên Linux đều được coi là `file` bao gồm cả thư mục, device và tất nhiên 
+là cả socket. Ta nên biết rằng mỗi socket sẽ được xem như một file, nên khi nginx chịu lượng truy cập lớn ~ mở nhiều socket ~ thông báo
+"Too many open files"
+
+
+If you are getting error “Too many open files (24)” then your application/command/script is hitting max open file limit allowed by linux. 
+You need to increase open file limit as below:
 Increase limit
 Per-User Limit
 
@@ -15,7 +25,7 @@ Open file: /etc/security/limits.conf
 
 Paste following towards end:
 
-```
+```bash
 	*         hard    nofile      500000
 	*         soft    nofile      500000
 	root      hard    nofile      500000

@@ -6,7 +6,7 @@ tags: programming
 description:
 ---
 
-```
+```go
 	package main
 
 	import "fmt"

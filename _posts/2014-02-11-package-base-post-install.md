@@ -22,11 +22,18 @@ Cài đặt repo Epel
 	~$ sudo rpm -Uvh epel-release-6*.rpm
 ```
 
+Cai dat repo Remi
+
+```
+	~$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+	~$ rpm -Uvh remi-release-5*.rpm
+```
+
 Các gói base:
 
 ```
 	~$ yum install systemtool system-config-network-tui vim libtool -y 	
-	~$ yum install make autoconf automake htop wget curl gcc -y
+	~$ yum install make autoconf automake htop wget curl gcc gcc-c++ -y
 ```
 
 Thiết lập:

@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "How to create blog with git pages and jekyll"
+title:  "Tạo một blog với Jekyll và Github Page"
 author: xluffy
 date:   2014-02-07
 tags: tips
-description: "Huong dan tao blog cho n~ ke ngheo"
+description: "Tạo một blog với Jekyll và Github Page"
 ---
 
 ### What? 
@@ -71,8 +71,8 @@ Tới thư mục mà bạn muốn đặt mã nguồn blog, và clone nó về.
     ~$ git clone https://github.com/xluffy/xluffy.github.io
 	~$ cd xluffy.github.io
 	~$ rm -rf * 
-	// xoa het cac template cu cua git pages, 
-	// chi giu lai .git/
+	// Xóa hết các template cũ vì tự tạo layout mới, 
+	// Nhưng đừng xóa .git/
 ```
 
 ### Step 4: Cài đặt Jekyll
