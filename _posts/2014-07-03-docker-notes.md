@@ -168,7 +168,7 @@ Thú thật là chả có gì để viết về phần này, 1 là Dockerfile v�
 	ENV LANG en_US.UTF-8
 ```
 
-## 1.7 Docker Index/registry hub.docker.io)
+## 1.7 Docker Index/registry (hub.docker.io)
 
 Ở đầu bài tôi có một link giới thiệu tới docker index của tôi. Vấn đề đặt ra là khi tôi tạo một image, file image
 đó sẽ chỉ có trên máy chủ đó, trong trường hợp tôi di chuyển qua một máy chủ khác, tôi phải tạo lại một image 
