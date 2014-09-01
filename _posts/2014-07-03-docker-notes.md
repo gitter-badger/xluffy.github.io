@@ -17,15 +17,15 @@ Docker Index của tôi: [https://registry.hub.docker.com/u/xluffy/saigon/](http
 
 Docker là một công cụ được tạo bởi dotCloud giúp cho việc sử dụng Linux Containers (LXC) trở nên dễ dàng hơn. Linux Containers 
 là một phương thức cung cấp một lớp Hệ Điều Hành ảo hóa, cho phép chạy nhiều môi trường máy chủ độc lập trên một host điều khiển.
-LXC không cung cấp một virtual machine, nhưng nó cung cấp một môi trường ảo có các process và không gian mạng riêng biệt. Nó tương
+LXC không cung cấp một virtual machine, nhưng cung cấp một môi trường ảo có các process và không gian mạng riêng biệt. LXC tương
 tự như `chroot` nhưng cung cấp nhiều tính năng giúp các môi trường trở lên `độc lập` hơn.
 
 ## 1.2 Docker Containers khác với Virtual Machines như thế nào?
 
-Docker, công cụ sử dụng Linux Containers (LXC) chạy chung kernel với host (nghĩa là không có container Windows). Điều này cho phép nó 
-có thể chia sẻ nhiều tài nguyên của host. Nó sử dụng AuFS cho hệ thống tập tin, và cũng quản lý rất tốt phần networking.
+Docker, công cụ sử dụng Linux Containers (LXC) chạy chung kernel với host (nghĩa là không có container Windows). Điều này cho phép docker 
+có thể chia sẻ nhiều tài nguyên của host. Docker sử dụng AuFS cho hệ thống tập tin.
 
-AuFS là hệ thống tập tin cho phép `union mount`, hiểu đơn giản nghĩa là nó cho phép bạn mount nhiều thư mục vào một mount-point __với 
+AuFS là hệ thống tập tin cho phép `union mount`, hiểu đơn giản nghĩa là AuFS cho phép bạn mount nhiều thư mục vào một mount-point __với 
 các quyền đọc ghi khác nhau__. `union mount` được sử dụng phổ biến trên các LiveCD, cho phép boot vào hệ điều hành mà không "ghi" gì 
 vào ổ cứng (kiểu như bạn có thể boot vào LiveCD, cài một số thứ nhưng khi thoát ra thì trở về trạng thái cũ). Vẫn khá là khó hiểu đúng 
 không, vậy thử một vài ví dụ
@@ -61,10 +61,10 @@ lập, tránh các container ảnh hưởng và làm hỏng dữ liệu của nh
 
 - Kernel phiên bản lớn hơn 3.8 và cgroups, namespaces phải được bật.
 - AUFS : AUFS bao gồm trong kernels được build bởi Debian, Ubuntu, Arch Linux, nhưng không được build sẵn trong các kernel tiêu chuẩn. Nếu
-bạn sử dụng bản phân phối khác, cần load nó vào kernel
+bạn sử dụng bản phân phối khác, cần load AuFS vào kernel trước.
 - LXC : Linux Containers
 
-Có nhiều cách cài docker, từ source, từ các trình quản lý gói của các bản phân phối phổ biến, bạn tự chọn một cách cho mình, nó rất dễ nếu 
+Có nhiều cách cài docker, từ source, từ các trình quản lý gói của các bản phân phối phổ biến, bạn tự chọn một cách cho mình, rất dễ nếu 
 bạn đã đi được một đoạn đường dài với Linux. Ở đây tôi dùng Arch Linux nên sẽ hướng dẫn cách cài bằng trình quản lý gói tin `pacman` của Arch
 Linux.
 
@@ -87,7 +87,7 @@ Về cơ bản, có 2 khái niệm cần phân biệt là Container và Images, 
 
 + `docker run` tạo một container.
 + `docker stop` tắt một container.
-+ `docker start` và bật nó lại.
++ `docker start` và khởi động container.
 + `docker restart` khởi động lại một container.
 + `docker rm` xóa một container.
 + `docker kill` gửi một SIGKILL tới một container. Has issues.
@@ -95,9 +95,9 @@ Về cơ bản, có 2 khái niệm cần phân biệt là Container và Images, 
 + `docker wait` blocks until container stops.
 	
 Nếu bạn muốn chạy và tương tác với một container, `docker start` và `docker attach`
-Nếu muốn có một container tạm thời, chạy `docker run -rm`, nó sẽ xóa container đó khi stop.
+Nếu muốn có một container tạm thời, chạy `docker run -rm`, lệnh này sẽ xóa container đó khi stop.
 Nếu muốn chia sẻ một thư mục từ host tới docker container, chạy `docker run -v $HOSTDIR:DOCKERDIR`
-Nếu muốn có một container tạm thời, chạy `docker run -rm`, nó sẽ xóa container đó khi stop.
+Nếu muốn có một container tạm thời, chạy `docker run -rm`, lệnh này sẽ xóa container đó khi stop.
 
 ### 1.4.2 Thông tin
 
@@ -135,21 +135,6 @@ Images chỉ là một template cho docker container, tương tự như khái ni
 + `docker history` hiển thị history của một images.
 + `docker tags` tags một image thành tên (local hoặc reg).
 
-### 1.5.3 Registry & Repository (hub.docker.io)
-
-Một repository là một bộ sưu tập lưu trữ các images được đánh tags giúp tạo ra filesytem cho một container.
-
-Một registry là một máy chủ -- máy chủ lưu trữ các repositorry và cung cấp một HTTP API cho phép quản lý việc upload và download của các repository.
-
-Docker.io là một máy chủ, nó là một central registry chứa một số lượng lớn các repository, với tài khoản free sẽ được một private repo.
-
-Registry là cách tôi gọi, chính xác phải gọi nó là Docker Index.
-
-+ `docker login` login vào một registry.
-+ `docker search` search registry cho image.
-+ `docker pull` pulls một image từ registry về local machine.
-+ `docker push` push một images tới registry từ local machine.
-
 ## 1.6 Dockerfile (là một trong các cách tạo image, nhưng phổ biến nên sẽ nói riêng nó)
 
 Thú thật là chả có gì để viết về phần này, 1 là Dockerfile vô cùng basic của tôi, dùng để thử, và 1 của người khác, cũng đơn giản ko kém
@@ -183,14 +168,14 @@ Thú thật là chả có gì để viết về phần này, 1 là Dockerfile v�
 	ENV LANG en_US.UTF-8
 ```
 
-## 1.7 Docker Index/registry 
+## 1.7 Docker Index/registry hub.docker.io)
 
-Ở đầu bài tôi có một link giới thiệu tới docker index của tôi. Vấn đề đặt ra là khi tôi tạo một image, nó 
-sẽ chỉ có trên máy chủ đó, trong trường hợp tôi di chuyển qua một máy chủ khác, tôi phải tạo lại một image 
-khác mà không đảm bảo là nó sẽ giống cái cũ (quên chẳng hạn). Và để giúp mọi thứ trở lên linh động hơn, cần
+Ở đầu bài tôi có một link giới thiệu tới docker index của tôi. Vấn đề đặt ra là khi tôi tạo một image, file image
+đó sẽ chỉ có trên máy chủ đó, trong trường hợp tôi di chuyển qua một máy chủ khác, tôi phải tạo lại một image 
+khác mà không đảm bảo là iamge mới sẽ giống cái cũ (quên chẳng hạn). Và để giúp mọi thứ trở lên linh động hơn, cần
 có một `kho chung` để quản lý image. Và Docker Index/registry là một nơi như thế.
 
-Về cơ bản nó gồm 2 phần, phần web giúp thuận tiện cho việc quản lý các image thông qua giao diện, và phần API
+Về cơ bản gồm 2 phần, phần web giúp thuận tiện cho việc quản lý các image thông qua giao diện, và phần API
 cho phép giao tiếp với giao diện dòng lệnh của docker.
 
 Bạn có thể đăng ký một tài khoản trên docker index của dotCloud (free 1 private) hoặc tự dựng cho mình một docker
@@ -200,4 +185,12 @@ Thông tin về cách cài đặt, cấu hình một docker registry ở [đây]
 có thể tham khảo và cài thử.
 
 ![Kiến trúc của Docker](http://i.imgur.com/0IFcxUB.png)
+
+Một số lệnh khi làm việc với Docker Index
+
++ `docker login` login vào một registry.
++ `docker search` search registry cho image.
++ `docker pull` pulls một image từ registry về local machine.
++ `docker push` push một images tới registry từ local machine.
+
 
