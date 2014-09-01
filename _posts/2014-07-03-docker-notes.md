@@ -16,14 +16,14 @@ Docker Index của tôi: [https://registry.hub.docker.com/u/xluffy/saigon/](http
 ## 1.1 Docker là gì?
 
 Docker là một công cụ được tạo bởi dotCloud giúp cho việc sử dụng Linux Containers (LXC) trở nên dễ dàng hơn. Linux Containers 
-là một phương thức cung cấp một lớp Hệ Điều Hành ảo hóa, cho phép chạu nhiều môi trường máy chủ độc lập trên một host điều khiển.
+là một phương thức cung cấp một lớp Hệ Điều Hành ảo hóa, cho phép chạy nhiều môi trường máy chủ độc lập trên một host điều khiển.
 LXC không cung cấp một virtual machine, nhưng nó cung cấp một môi trường ảo có các process và không gian mạng riêng biệt. Nó tương
-tự như `chroot` nhưng cung cấp nhiều tính năng giúp `độc lập` hơn.
+tự như `chroot` nhưng cung cấp nhiều tính năng giúp các môi trường trở lên `độc lập` hơn.
 
 ## 1.2 Docker Containers khác với Virtual Machines như thế nào?
 
-Docker, công cụ sử dụng Linux Containers (LXC) chạy chung kernel với host. Điều này cho phép nó có thể chia sẻ nhiều tài nguyên của
-host. Nó sử dụng AuFS cho hệ thống tập tin, và cũng quản lý rất tốt phần networking.
+Docker, công cụ sử dụng Linux Containers (LXC) chạy chung kernel với host (nghĩa là không có container Windows). Điều này cho phép nó 
+có thể chia sẻ nhiều tài nguyên của host. Nó sử dụng AuFS cho hệ thống tập tin, và cũng quản lý rất tốt phần networking.
 
 AuFS là hệ thống tập tin cho phép `union mount`, hiểu đơn giản nghĩa là nó cho phép bạn mount nhiều thư mục vào một mount-point __với 
 các quyền đọc ghi khác nhau__. `union mount` được sử dụng phổ biến trên các LiveCD, cho phép boot vào hệ điều hành mà không "ghi" gì 
