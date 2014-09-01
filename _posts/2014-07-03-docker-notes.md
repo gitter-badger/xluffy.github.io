@@ -33,7 +33,7 @@ không, vậy thử một vài ví dụ
 ```bash
 	# mkdir /tmp/docker
 	# mkdir /tmp/aufs-root
-	# mount -t aufs -o br=/tmp/docker:/home/xquang none /tmp/aufs-root/
+	# mount -t aufs -o br=/tmp/docker:/home/xluffy none /tmp/aufs-root/
 ```
 
 ```bash
@@ -42,7 +42,7 @@ không, vậy thử một vài ví dụ
 	none – mount 2 thư mục chứ không phải filesystem
 ```
 
-=> Giờ nếu xem nội dung trong thư mục `/tmp/aufs-root` sẽ thấy chứa nội dung của cả 2 thư mục `/tmp/docker` và thư mục `/home/xquang`, 
+=> Giờ nếu xem nội dung trong thư mục `/tmp/aufs-root` sẽ thấy chứa nội dung của cả 2 thư mục `/tmp/docker` và thư mục `/home/xluffy`, 
 và default không có quyền gì thì nhánh đầu tiên sẽ có quyền write, còn nhánh thứ 2 sẽ chỉ có quyền đọc. Nghĩa là nếu bạn tạo một file 
 mới trong `/tmp/aufs-root` thì file đó sẽ được tạo trong `/tmp/docker`
 
@@ -61,11 +61,12 @@ lập, tránh các container ảnh hưởng và làm hỏng dữ liệu của nh
 
 - Kernel phiên bản lớn hơn 3.8 và cgroups, namespaces phải được bật.
 - AUFS : AUFS bao gồm trong kernels được build bởi Debian, Ubuntu, Arch Linux, nhưng không được build sẵn trong các kernel tiêu chuẩn. Nếu
-bạn sử dụng bản phân phối khác, cần add nó vào kernel
+bạn sử dụng bản phân phối khác, cần load nó vào kernel
 - LXC : Linux Containers
 
 Có nhiều cách cài docker, từ source, từ các trình quản lý gói của các bản phân phối phổ biến, bạn tự chọn một cách cho mình, nó rất dễ nếu 
 bạn đã đi được một đoạn đường dài với Linux. Ở đây tôi dùng Arch Linux nên sẽ hướng dẫn cách cài bằng trình quản lý gói tin `pacman` của Arch
+Linux.
 
 ### 1.3.2 Cài đặt trên Arch Linux
 
@@ -199,3 +200,4 @@ Thông tin về cách cài đặt, cấu hình một docker registry ở [đây]
 có thể tham khảo và cài thử.
 
 ![Kiến trúc của Docker](http://i.imgur.com/0IFcxUB.png)
+
