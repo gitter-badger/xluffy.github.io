@@ -15,12 +15,49 @@ Docker Index của tôi: [https://registry.hub.docker.com/u/xluffy/saigon/](http
 
 ## 1.1 Docker là gì?
 
-Docker là một công cụ được tạo bởi dotCloud giúp cho việc sử dụng Linux Containers (LXC) trở nên dễ dàng hơn. Linux Containers 
+Docker là một công cụ được tạo bởi __dotCloud__ giúp cho việc sử dụng Linux Containers (LXC) trở nên dễ dàng hơn. Linux Containers 
 là một phương thức cung cấp một lớp Hệ Điều Hành ảo hóa, cho phép chạy nhiều môi trường máy chủ độc lập trên một host điều khiển.
 LXC không cung cấp một virtual machine, nhưng cung cấp một môi trường ảo có các process và không gian mạng riêng biệt. LXC tương
 tự như `chroot` nhưng cung cấp nhiều tính năng giúp các môi trường trở lên `độc lập` hơn.
 
-## 1.2 Docker Containers khác với Virtual Machines như thế nào?
+## 1.2 Giới thiệu về LXC
+
+Các tính năng của LXC
+
+- Kernel namespaces (ipc, uts, mount, pid, network and user)
+- Apparmor and SELinux profiles
+- Seccomp policies
+- Chroots (using pivot_root)
+- Kernel capabilities
+- Control groups (cgroups)
+
+### 1.2.1 Giới thiệu về `cgroups` [[1]](http://kaivanov.blogspot.com/2012/07/setting-up-linux-cgroups-control-groups.html)
+
+cgroups (control groups) là một tính năng của kernel Linux cho phép giới hạn, quản lý, độc lập về tài nguyên (CPU, memory, disk I/O,
+etc) của một nhóm các tiến trình. Tính năng này được thêm từ phiên năm 2007 ở phiên bản kernel 2.6.24. 
+
+Bằng cách sử dụng cgroups, system administrators có thể dễ dàng trong việc phân bổ, ưu tiên, từ chối, theo dõi, giám sát tài nguyên 
+hệ thống. Tài nguyên phần cứng có thể sẽ được phân chia một cách thông minh dựa trên đối tượng, nhiệm vụ nhằm tăng hiệu suất tổng 
+thể của hệ thống.
+
+Trong cgroups, các tài nguyên hệ thống được gọi bằng thuật ngữ “subsystem” hay “resource controller” và các tiến trình trên hệ thống
+được gọi là “task”. Và có chế độ phân cấp như `process`, nghĩa là các cgroups con sẽ thừa hưởng các thuộc tính của cgroups cha.
+
+Trên hệ thống Red Hat 6, cung cấp cả thảy 10 loại "subsystem” cụ thể như sau:
+
+- blkio — đây là subsystem cho phép giới hạn các input/output truy cập tới và từ các block devices ví dụ các thiết bị đĩa cứng (disk, 
+solid state, USB, etc.).
+- cpu — đây là subsystem được sử dụng để lập lịch cung cấp cho `cgroup tasks` truy cập và sử dụng CPU.
+- cpuacct — đây là subsystem tự động tạo các báo cáo vể tài nguyên CPU được sử dụng bởi một tiến trình trong cgroups.
+- cpuset — this subsystem assigns individual CPUs (on a multicore system) and memory nodes to tasks in a cgroup.
+- devices — this subsystem allows or denies access to devices by tasks in a cgroup.
+- freezer — this subsystem suspends or resumes tasks in a cgroup.
+- memory — this subsystem sets limits on memory use by tasks in a cgroup, and generates automatic reports on memory resources used by those tasks.
+- net_cls — this subsystem tags network packets with a class identifier (classid) that allows the Linux traffic controller (tc) to identify packets originating from a particular cgroup task.
+- net_prio — this subsystem provides a way to dynamically set the priority of network traffic per network interface.
+- ns — the namespace subsystem.
+
+## 1.3 Docker Containers khác với Virtual Machines như thế nào?
 
 Docker, công cụ sử dụng Linux Containers (LXC) chạy chung kernel với host (nghĩa là không có container Windows). Điều này cho phép docker 
 có thể chia sẻ nhiều tài nguyên của host. Docker sử dụng AuFS cho hệ thống tập tin.
@@ -55,9 +92,9 @@ thể làm hỏng cả host của bạn. Vì thế `union mount` được sử d
 lập, tránh các container ảnh hưởng và làm hỏng dữ liệu của nhau.
 
 
-## 1.3 Cài đặt
+## 1.4 Cài đặt
 
-### 1.3.1 Yêu cầu 
+### 1.4.1 Yêu cầu 
 
 - Kernel phiên bản lớn hơn 3.8 và cgroups, namespaces phải được bật.
 - AUFS : AUFS bao gồm trong kernels được build bởi Debian, Ubuntu, Arch Linux, nhưng không được build sẵn trong các kernel tiêu chuẩn. Nếu
@@ -68,7 +105,7 @@ Có nhiều cách cài docker, từ source, từ các trình quản lý gói c�
 bạn đã đi được một đoạn đường dài với Linux. Ở đây tôi dùng Arch Linux nên sẽ hướng dẫn cách cài bằng trình quản lý gói tin `pacman` của Arch
 Linux.
 
-### 1.3.2 Cài đặt trên Arch Linux
+### 1.4.2 Cài đặt trên Arch Linux
 
 Cài đặt, start trên Arch Linux và kiểm tra
 
@@ -81,9 +118,9 @@ Cài đặt, start trên Arch Linux và kiểm tra
 
 Về cơ bản, có 2 khái niệm cần phân biệt là Container và Images, cụ thể từng phần như ở dưới.
 
-## 1.4 Docker Container
+## 1.5 Docker Container
 
-### 1.4.1 Vòng đời
+### 1.5.1 Vòng đời
 
 + `docker run` tạo một container.
 + `docker stop` tắt một container.
@@ -99,7 +136,7 @@ Nếu muốn có một container tạm thời, chạy `docker run -rm`, lệnh n
 Nếu muốn chia sẻ một thư mục từ host tới docker container, chạy `docker run -v $HOSTDIR:DOCKERDIR`
 Nếu muốn có một container tạm thời, chạy `docker run -rm`, lệnh này sẽ xóa container đó khi stop.
 
-### 1.4.2 Thông tin
+### 1.5.2 Thông tin
 
 + `docker ps` hiển thị các container đang chạy.
 + `docker inspect` tìm kiếm tất cả thông tin của một container, bao gồm cả địa chỉ IP.
@@ -110,16 +147,16 @@ Nếu muốn có một container tạm thời, chạy `docker run -rm`, lệnh n
 + `docker diff` hiển thị các file thay đổi trong FS của một container.
 + `docker ps -a` hiển thị tất cả các container, bao gồm cả đang chạy và stop.
 
-### 1.4.3 Import/Export
+### 1.5.3 Import/Export
 
 + `docker cp` copy file hoặc thư mục ra khỏi filesystem của container.
 + `docker export` đóng gói filesystem của container vô một tarball
 
-## 1.5 Images
+## 1.6 Images
 
 Images chỉ là một template cho docker container, tương tự như khái niệm template của OpenVZ
 
-### 1.5.1 Vòng đời
+### 1.6.1 Vòng đời
 
 + `docker images` hiển thị tất cả các images.
 + `docker import` tạo một image từ tarball.
@@ -130,12 +167,12 @@ Images chỉ là một template cho docker container, tương tự như khái ni
 + `docker load` load một image từ một tar như STDIN, bao gồm cả images và tags (as of 0.7).
 + `docker save` lưu một image vào một file tar từ STDOUT with all parent layers, tags & versions (as of 0.7).
 
-### 1.5.2 Info
+### 1.6.2 Info
 
 + `docker history` hiển thị history của một images.
 + `docker tags` tags một image thành tên (local hoặc reg).
 
-## 1.6 Dockerfile (là một trong các cách tạo image, nhưng phổ biến nên sẽ nói riêng nó)
+## 1.7 Dockerfile (là một trong các cách tạo image, nhưng phổ biến nên sẽ nói riêng nó)
 
 Thú thật là chả có gì để viết về phần này, 1 là Dockerfile vô cùng basic của tôi, dùng để thử, và 1 của người khác, cũng đơn giản ko kém
 
@@ -192,5 +229,3 @@ Một số lệnh khi làm việc với Docker Index
 + `docker search` search registry cho image.
 + `docker pull` pulls một image từ registry về local machine.
 + `docker push` push một images tới registry từ local machine.
-
-
