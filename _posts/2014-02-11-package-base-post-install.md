@@ -42,7 +42,7 @@ Thiết lập:
 	~$ /etc/init.d/iptables stop 	
 	~$ /etc/init.d/ip6tables stop 	
 	~$ chkconfig iptables off 	
-	~$ chkconfig ipt6ables off
+	~$ chkconfig ip6tables off
 ```
 
 
