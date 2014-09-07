@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Một vài lệnh thú vị trên Linux"
-date:   2014-05-18
-tags: cmd, command line
-description: "Một vài lệnh thú vị trên Linux"
+title:  "Những lệnh ngắn, hữu ích khi quản trị"
+date:   2014-09-07
+tags: cmd, command line, linux
+description: "Những lệnh ngắn, hữu ích khi quản trị"
 ---
 
 Việc sử dụng Linux và thao tác công việc với các cmd của Linux là khá thường xuyên, tuy nhiên
