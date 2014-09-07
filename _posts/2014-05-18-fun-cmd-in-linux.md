@@ -48,3 +48,21 @@ Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra
 	~$ fallocate -l 10GB bigfile.a
 	~$ dd if=/dev/zero of=filename bs=1 count=0 seek=10G
 ```
+
+### Xem lịch sử login vào hệ thống
+
+```bash
+	~$ last
+	xquang   pts/0        14.19.16.220   Sun Sep  7 07:30   still logged in
+	xquang   pts/0        14.166.136.225     Sat Sep  6 17:30 - 18:01  (00:31)
+	xquang   pts/0        14.166.136.225     Sat Sep  6 17:00 - 17:00  (00:00)
+	xquang   pts/0        14.166.136.225     Sat Sep  6 16:22 - 16:53  (00:30)
+```
+
+```bash
+	~$ lastlog
+	Username         Port     From             Latest
+	root             pts/0    10.200.0.9       Thu Sep  4 00:52:36 +0700 2014
+	bin                                        **Never logged in**
+	daemon                                     **Never logged in**
+```
