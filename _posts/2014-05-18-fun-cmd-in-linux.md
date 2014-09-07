@@ -66,3 +66,11 @@ Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra
 	bin                                        **Never logged in**
 	daemon                                     **Never logged in**
 ```
+
+### Xóa các dòng trống `blank line`
+
+```
+	~$ grep -v "^#" /etc/ssh/sshd_config | sed '/^$/d'
+```
+
+Diễn giải: lệnh sed sẽ tìm các dòng bắt đầu `^` và kết thúc `$` không có ký tự nào rồi xóa `d`
