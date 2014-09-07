@@ -74,3 +74,17 @@ Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra
 ```
 
 Diễn giải: lệnh sed sẽ tìm các dòng bắt đầu `^` và kết thúc `$` không có ký tự nào rồi xóa `d`
+
+### Find
+
+Có một đám log nén bỏ lung tung các thư mục, giờ muốn gom về một chỗ để lưu trữ
+
+```bash
+	~$ find . -name php-fpm*.tgz -exec mv {} archive/ \;
+```
+
+Có một đống các thư mục tên `log` nằm rải rác trong các thư mục con, giờ muốn xóa đi
+
+```bash
+	~$ find . -name "log" -exec rm -rf {} \;
+```
