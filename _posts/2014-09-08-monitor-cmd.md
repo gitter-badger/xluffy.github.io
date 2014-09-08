@@ -6,12 +6,11 @@ tags: vmstat, dstat, mpstat
 description: "Những lệnh monitor hệ thống"
 ---
 
-
 Mô tả một số lệnh hữu ích trong việc phân tích trạng thái của server
 
 Một số lệnh dễ xem như top, htop, free và các thông số kèm theo sẽ không mô tả ở đâu
 
-## vmstat
+## 1. vmstat
 
 Lệnh này là một lệnh khá thú vị và được dùng khá nhiều. Nó mô tả trạng thái của hệ thống tại một thời điểm
 
@@ -21,8 +20,8 @@ Cú pháp:
 	~$ vmstat [interval] [count]
 ```
 
-  * interval: Khoảng thời gian report- default là 30s count
-  * count Số lần report
+- interval: Khoảng thời gian report- default là 30s count
+- count Số lần report
 
 Ví dụ:
 
@@ -50,16 +49,16 @@ Mặc định sẽ xuất ra dạng Kilobyte, để xuất ra Megabyte sử dụ
 	 8  0     34    265   2929  20304    0    0    42  1610 40385 26602 20  2 78  0  0
 ```
 
-## procs
+### 1.1 procs
 
 Dữ liệu procs báo cáo số processing jobs chờ để run và cho phép bạn xác định xem có các process làm cho hệ thống của bạn bị chậm lại hay ko?
 
-    * Cột r hiển thị tổng số processing jobs chờ để truy cập vào processor. Nếu quan sát nhiều lần và thấy giá trị này vào khoảng = 2 lần CPU  có hiện tượng thắt cổ chai
-    * Cột b hiển thị tổng số processes trong trạng thái ‘sleep’
+- Cột r hiển thị tổng số processing jobs chờ để truy cập vào processor. Nếu quan sát nhiều lần và thấy giá trị này vào khoảng = 2 lần CPU  có hiện tượng thắt cổ chai
+- Cột b hiển thị tổng số processes trong trạng thái ‘sleep’
 
 Nếu các giá trị của các cột r và b thường xuyên cao (=2%%*%%CPU), điều đó có nghĩa hệ thống không có đủ cpu hoặc memory hoặc i/o bandwidth.
 
-## mpstat
+## 2. mpstat
 
 Thống kê chi tiết tình trạng sự dụng CPU
 
@@ -71,13 +70,13 @@ Thống kê chi tiết tình trạng sự dụng CPU
 	01:50:58 PM  all    4.53    0.00    0.34    0.05    0.00    0.13    0.00    0.00   94.94
 ```
 
-    * CPU: mã số của từng core trên CPU, All là giá trị trung bình
-    * %usr: phần trăm sử dụng CPU ở mức user level (applicaton)
-    * %nice: phần trăm sử dụng CPU ở mức user level với độ ưu tiên
-    * %sys: phần trăm sử dụng CPU ở mức hệ thống, kernel space
-    * %iowait:
-    * %irq:
-    * %idle:
+- CPU: mã số của từng core trên CPU, All là giá trị trung bình
+- %usr: phần trăm sử dụng CPU ở mức user level (applicaton)
+- %nice: phần trăm sử dụng CPU ở mức user level với độ ưu tiên
+- %sys: phần trăm sử dụng CPU ở mức hệ thống, kernel space
+- %iowait:
+- %irq:
+- %idle:
 
 Hiện thị thống kê sử dụng tất cả các core CPU tại một thời điểm
 
@@ -140,7 +139,5 @@ Hiển thị 5 report, mỗi 2s một lần của core thứ 5
 
 Một vài tip
 
-    * Nếu %usr cao, có nghĩa là ứng dụng của bạn (user-space, php-fpm) đang tiêu thụ một lượng lớn CPU và đang trở lên quá tải
-    * Nếu %sys cao, có nghĩa là máy chủ của bạn đang tiêu thụ một lượng tài nguyên lớn bởi các ứng dụng từ hệ thống (kernel)
-
-
+- Nếu %usr cao, có nghĩa là ứng dụng của bạn (user-space, php-fpm) đang tiêu thụ một lượng lớn CPU và đang trở lên quá tải
+- Nếu %sys cao, có nghĩa là máy chủ của bạn đang tiêu thụ một lượng tài nguyên lớn bởi các ứng dụng từ hệ thống (kernel)
