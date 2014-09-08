@@ -141,3 +141,16 @@ Một vài tip
 
 - Nếu %usr cao, có nghĩa là ứng dụng của bạn (user-space, php-fpm) đang tiêu thụ một lượng lớn CPU và đang trở lên quá tải
 - Nếu %sys cao, có nghĩa là máy chủ của bạn đang tiêu thụ một lượng tài nguyên lớn bởi các ứng dụng từ hệ thống (kernel)
+
+
+TO-DO
+- dstat
+- sar
+- lsof
+- iotop/iostat
+- atop
+- pmap
+- netstat/ss
+- ncdu
+
+http://lintut.com
