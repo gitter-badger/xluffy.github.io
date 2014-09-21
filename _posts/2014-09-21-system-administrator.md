@@ -17,12 +17,12 @@ Mục đích cuối cùng là đảm bảo cho hệ thống máy tính, hệ th�
 
 ## 1. Mô tả công việc
 
-    * Cài đặt, cấu hình, tối ưu hóa các máy chủ Linux
-    * Quản lý, giám sát đảm bảo máy chủ hoạt động ổn định suốt 24h
-    * Triển khai, vận hành hệ thống máy chủ tại Data Center
-    * Kiểm tra, bảo trì, backup dữ liệu hệ thống định kỳ.
-    * Ghi chép, lưu giữ nhật ký hoạt động của hệ thống.
-    * Nghiên cứu, đề xuất giải pháp và công nghệ mới
+* Cài đặt, cấu hình, tối ưu hóa các máy chủ Linux
+* Quản lý, giám sát đảm bảo máy chủ hoạt động ổn định suốt 24h
+* Triển khai, vận hành hệ thống máy chủ tại Data Center
+* Kiểm tra, bảo trì, backup dữ liệu hệ thống định kỳ.
+* Ghi chép, lưu giữ nhật ký hoạt động của hệ thống.
+* Nghiên cứu, đề xuất giải pháp và công nghệ mới
 
 ## 2. Những tố chất và kỹ năng cần có của một System Admin
 
