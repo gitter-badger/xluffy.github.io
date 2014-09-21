@@ -43,15 +43,14 @@ Liệt kê một số nơi mà bạn có thể tìm được câu trả lời ch
 
 * Trước tiên, chính là nơi bạn viết, Wiki này hoặc chính blog này 
 * Google, google và google
-* Loạt Website hỏi đáp như [http://stackoverflow.com](http://stackoverflow.com)
-chuyên môn: DBA (MySQL) [http://dba.stackexchange.com](http://dba.stackexchange.com),
-Server/SA [http://serverfault.com](http://serverfault.com), [http://superuser.com](http://superuser.com)
+* Loạt website hỏi đáp như [http://stackoverflow.com](Stackoverflow) chuyên
+môn: DBA (MySQL) [http://dba.stackexchange.com](DBA),[http://serverfault.com](ServerFault), [http://superuser.com](SuperUser)
 * Các vấn đề chuyên sâu  trang chủ, trang docs, forum của các ứng dụng, giải
 pháp, phần mềm đó
-* [http://github.com](http://github.com) -> có rất nhiều dự án thú vị hoặc
+* [http://github.com](Github) -> có rất nhiều dự án thú vị hoặc
 các list công nghệ rất thú vị ví dụ [https://github.com/kahun/awesome-sysadmin](awesome-sysadmin)
 * Các trang dạng QA như: [https://news.ycombinator.com/[(https://news.ycombinator.com/)
--> nhiều công nghệ mới, [http://tinsang.net/](http://tinsang.net/), hoặc Twitter -> twitter đặc biệt hữu ích khi tìm hiểu về trend của giới công nghệ hiện nay.
+-> nhiều công nghệ mới, [http://tinsang.net/](tinsang), hoặc Twitter -> twitter đặc biệt hữu ích khi tìm hiểu về trend của giới công nghệ hiện nay.
 
 ## 4. A lazy sysadmin is the best sysadmin
 
