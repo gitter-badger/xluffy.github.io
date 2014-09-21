@@ -176,11 +176,11 @@ Trang này có rất nhiều gif vui liên quan đến công việc của Dev, S
 
 Senior vs junior sysadmin during an outage
 
-![Senior vs junior sysadmin](http://i.imgur.com/hhouPMw)
+![Senior vs junior sysadmin](http://i.imgur.com/hhouPMw.gif)
 
 The way of solving most problems 
 
-![The way of solving most problems](http://i.imgur.com/tfWC9nI)
+![The way of solving most problems](http://i.imgur.com/tfWC9nI.gif)
 
 Friday deployments (…and leaving afterwards) 
 
