@@ -43,25 +43,40 @@ Liệt kê một số nơi mà bạn có thể tìm được câu trả lời ch
 
 * Trước tiên, chính là nơi bạn viết, Wiki này hoặc chính blog này 
 * Google, google và google
-* Loạt website hỏi đáp như [http://stackoverflow.com](Stackoverflow) chuyên
-môn: DBA (MySQL) [http://dba.stackexchange.com](DBA),[http://serverfault.com](ServerFault), [http://superuser.com](SuperUser)
+* Loạt website hỏi đáp như [Stackoverflow](http://stackoverflow.com) chuyên
+môn: DBA (MySQL) [DBA](http://dba.stackexchange.com), [ServerFault](http://serverfault.com), 
+[SuperUser](http://superuser.com)
 * Các vấn đề chuyên sâu  trang chủ, trang docs, forum của các ứng dụng, giải
 pháp, phần mềm đó
-* [http://github.com](Github) -> có rất nhiều dự án thú vị hoặc
-các list công nghệ rất thú vị ví dụ [https://github.com/kahun/awesome-sysadmin](awesome-sysadmin)
-* Các trang dạng QA như: [https://news.ycombinator.com/[(https://news.ycombinator.com/)
--> nhiều công nghệ mới, [http://tinsang.net/](tinsang), hoặc Twitter -> twitter đặc biệt hữu ích khi tìm hiểu về trend của giới công nghệ hiện nay.
+* [Github](http://github.com) -> có rất nhiều dự án thú vị hoặc
+các list công nghệ rất thú vị ví dụ [awesome-sysadmin](https://github.com/kahun/awesome-sysadmin)
+* Các trang dạng News như: [New Hacker](https://news.ycombinator.com/)
+-> nhiều công nghệ mới, (tinsang)[http://tinsang.net/), hoặc Twitter -> twitter đặc biệt hữu ích 
+khi tìm hiểu về trend của giới công nghệ hiện nay.
 
 ## 4. A lazy sysadmin is the best sysadmin
 
-* Rule #1: Viết script cho các công việc lặp đi lặp lại, một cách lười biếng thông minh giúp anh ta trở lên master khi sử dụng bash, sed, awk, grep…
-* Rule #2: Backup everything, viết một script backup khi start một dự án, kiểm tra nó sau một khoảng thời gian để đảm bảo nó chạy đúng
+* Rule #1: Viết script cho các công việc lặp đi lặp lại, một cách lười biếng 
+thông minh giúp anh ta trở lên master khi sử dụng bash, sed, awk, grep, ack …
+* Rule #2: Backup everything, viết một script backup khi start một dự án, kiểm
+tra nó sau một khoảng thời gian để đảm bảo nó chạy đúng
 * Rule #3: Command line master
-* Rule #4: Document everything, từ cách cài đặt, cách sửa lỗi, cách triển khai, các vấn đề trong tương lai, những thứ mà có thể chia sẻ cho team.
+* Rule #4: Document everything, từ cách cài đặt, cách sửa lỗi, cách triển khai,
+các vấn đề trong tương lai, những thứ mà có thể chia sẻ cho team.
 * Rule #5: Cấu hình mọi thứ với độ sẵn sàng cao
-* Rule #6: Chủ động trong mọi tình huống. Một sysadmin lười biếng không phải là một người luôn ngồi chơi khi rảnh rỗi. Anh ta ghét phải thức dậy lúc nửa đêm chỉ vì một lỗi rất nhỏ. Cái anh ta cần làm là dùng thời gian rảnh rỗi để nghiên cứu, để đặt một vài cảnh báo, để dự đoán rủi ro, để dự đoán các vấn đề, lỗi, sự tăng trưởng của hệ thống trong tương lai để có thể phản ứng trước khi lỗi, vấn đề xảy ra.
-* Rule #7: Học từ sai lầm. Một sysadmin sẽ rất ghét phải lặp lại các sai lầm tương tự nhau. Chẳng ai muốn gặp phải các vấn đề không mông muốn. Nhưng một sysadmin giỏi là người khi gặp phải vấn đề bất ngờ, ngoài việc giải quyết nó nhanh chóng, anh ta CÂN dành thời gian để tìm hiểu tại sao lại xảy ra lỗi đó, nguyên nhân, cách khác phục, cách dự đoán, để đảm bảo lần sau sẽ không bao giờ lặp lại sai lầm đó nữa.
-* Rule #8: Học công nghệ mới. Nếu team của bạn đang sử dụng svn, không có nghĩa là bạn không nên tìm hiểu git.
+* Rule #6: Chủ động trong mọi tình huống. Một sysadmin lười biếng không phải là
+một người luôn ngồi chơi khi rảnh rỗi. Anh ta ghét phải thức dậy lúc nửa đêm chỉ 
+vì một lỗi rất nhỏ. Cái anh ta cần làm là dùng thời gian rảnh rỗi để nghiên cứu, 
+để đặt một vài cảnh báo, để dự đoán rủi ro, để dự đoán các vấn đề, lỗi, sự tăng 
+trưởng của hệ thống trong tương lai để có thể phản ứng trước khi lỗi, vấn đề xảy
+ra.
+* Rule #7: Học từ sai lầm. Một sysadmin sẽ rất ghét phải lặp lại các sai lầm tương
+tự nhau. Chẳng ai muốn gặp phải các vấn đề không mông muốn. Nhưng một sysadmin giỏi
+là người khi gặp phải vấn đề bất ngờ, ngoài việc giải quyết nó nhanh chóng, anh ta
+CÂN dành thời gian để tìm hiểu tại sao lại xảy ra lỗi đó, nguyên nhân, cách khác phục,
+cách dự đoán, để đảm bảo lần sau sẽ không bao giờ lặp lại sai lầm đó nữa.
+* Rule #8: Học công nghệ mới. Nếu team của bạn đang sử dụng svn, không có nghĩa là bạn
+không nên tìm hiểu git.
 
 ## 5. Nguyên tắc tối thiểu
 
