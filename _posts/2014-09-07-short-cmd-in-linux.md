@@ -108,6 +108,6 @@ thể login được
 	~$ ps -fu root| grep [b]ash
 	root      1218  1195  0 17:35 tty1     00:00:00 -bash
 	root     13123 13120  0 18:12 pts/1    00:00:00 -bash
-``
+```
 
 Và biết `pid` của session đó là `1218` và giờ chỉ cần `~$ kill -9 1218` là xong
