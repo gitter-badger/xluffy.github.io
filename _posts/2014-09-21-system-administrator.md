@@ -51,7 +51,7 @@ pháp, phần mềm đó
 * [Github](http://github.com) -> có rất nhiều dự án thú vị hoặc
 các list công nghệ rất thú vị ví dụ [awesome-sysadmin](https://github.com/kahun/awesome-sysadmin)
 * Các trang dạng News như: [New Hacker](https://news.ycombinator.com/)
--> nhiều công nghệ mới, (tinsang)[http://tinsang.net/], hoặc Twitter -> twitter đặc biệt hữu ích 
+-> nhiều công nghệ mới, [tinsang](http://tinsang.net/), hoặc Twitter → twitter đặc biệt hữu ích 
 khi tìm hiểu về trend của giới công nghệ hiện nay.
 
 ## 4. A lazy sysadmin is the best sysadmin
@@ -112,12 +112,10 @@ control được Apache và tránh các lỗi về bảo mật do cấu hình nh
 
 Tương tự với PHP, chỉ cần cài các module cần thiết
 
-Các dịch vụ khác
+Các dịch vụ khác và iptables
 
 Nếu sử dụng server làm web-server thì chẳng có lý do gì cần các dịch vụ như samba, 
 smtp, telnet, dns …, các gói đó có thể gỡ bỏ.
-
-Iptables
 
 Đối với iptables thì nguyên tắc tối thiểu thể hiện ở phương diện Deny All, Allow Select. 
 Ví dụ đối với webserver thì Drop tất cả các port, chỉ open duy nhất port http (80), 
@@ -150,39 +148,31 @@ có chuyện đó, vì đó là giao thức không có MÃ HÓA khi truyền cá
 data, user, pass trên đường truyền  Sử dụng các giao thức có mã hóa như 
 SCP hoặc FTP over SSL/TLS
 
-Bạn vẫn còn muốn dùng giao thức Telnet ??? → làm ơn, sử dụng SSH
-
-Bạn không muốn dùng VPN thì tốc độ chậm và vẫn muốn bảo mật  quên đi, làm 
+* Bạn vẫn còn muốn dùng giao thức Telnet ??? → làm ơn, sử dụng SSH
+* Bạn không muốn dùng VPN thì tốc độ chậm và vẫn muốn bảo mật  quên đi, làm 
 ơn dùng VPN dùm
-
-Bạn muốn truy cập remote từ public vì qua VPN phức tạp  bạn muốn dễ dàng 
+* Bạn muốn truy cập remote từ public vì qua VPN phức tạp  bạn muốn dễ dàng 
 và bảo mật ư  quên đi
-
-Bạn muốn mở nhiều port để tiện sử dụng → thôi quên chuyện bảo mật luôn đi, 
+* Bạn muốn mở nhiều port để tiện sử dụng → thôi quên chuyện bảo mật luôn đi, 
 bạn đang muốn sự tiện lợi chứ không phải bảo mật
-
-Bạn muốn quản trị MySQL dễ dàng, thôi thì GRANT ALL PRIVILEGES cho khỏe → 
+* Bạn muốn quản trị MySQL dễ dàng, thôi thì GRANT ALL PRIVILEGES cho khỏe → 
 tại sao cần quyền cấp user trong khi không cần thiết → bạn lười thì thôi 
 chịu thua, ko bảo mật được
-
-MD5 là gì, à hash à, ồ cái này có vẻ dễ xài hơn SHA đó, xài thôi bạn nên 
+* MD5 là gì, à hash à, ồ cái này có vẻ dễ xài hơn SHA đó, xài thôi bạn nên 
 biết những nhược điểm của MD5, và nên biết ng ta đã brute-force được kha 
 khá các password được hash bằng MD5 rồi đó
-
-Xài iptables khó quá, thôi thì để default rule là ACCEPT cho dễ → dễ thì
+* Xài iptables khó quá, thôi thì để default rule là ACCEPT cho dễ → dễ thì
 bó tay với bảo mật
-
-Hưm, tôi là user, máy tính của tôi tôi muốn cài những gì tôi muốn, policy 
+* Hưm, tôi là user, máy tính của tôi tôi muốn cài những gì tôi muốn, policy 
 của anh phức tạp quá  chẹp, vậy rủi ro khi cài các phần mềm độc hại là có 
 đó nhá cấp quá nhiều quyền và sự tiện lợi cũng không thể bảo mật
-
-Hưm, anh đặt cái password wifi gì đâu mà khó nhớ và phức tạp thế, lại còn 
+* Hưm, anh đặt cái password wifi gì đâu mà khó nhớ và phức tạp thế, lại còn 
 dùng WPA2 nữa chứ, sao ko dùng WEP cho "nhanh" → m(
 
 ## 7. Vui nhưng không vui
 
 Trang này có rất nhiều gif vui liên quan đến công việc của Dev, SysAdm, DevOps 
-(DevOpsSreactions)[http://devopsreactions.tumblr.com]
+[DevOpsSreactions](http://devopsreactions.tumblr.com)
 
 Senior vs junior sysadmin during an outage
 
