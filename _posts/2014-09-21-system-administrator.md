@@ -172,7 +172,7 @@ dùng WPA2 nữa chứ, sao ko dùng WEP cho "nhanh" → m(
 ## 7. Vui nhưng không vui
 
 Trang này có rất nhiều gif vui liên quan đến công việc của Dev, SysAdm, DevOps 
-[DevOpsSreactions](http://devopsreactions.tumblr.com)
+→ [link](http://devopsreactions.tumblr.com)
 
 Senior vs junior sysadmin during an outage
 
