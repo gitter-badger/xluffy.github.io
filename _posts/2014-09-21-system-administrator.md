@@ -31,38 +31,38 @@ năng cần thiết của một system admin. Những thứ liệt kê ở dư�
 việc của bạn trở nên dễ thở, vận hành hệ thống trơn tru và tự phát triển những
 kỹ năng của chính bản thận bạn
 
-    * Kỹ năng giải quyết vấn đề một cách logic, khoa học
-    * Hứng thú với việc viết tài liệu và chia sẻ cho người khác
-    * Lười biếng, lười biếng và lười biếng
-    * Thuật toán, mã hóa, các thứ về bảo mật
-    * Sử dụng command-line, shell một cách thành thạo
+* Kỹ năng giải quyết vấn đề một cách logic, khoa học
+* Hứng thú với việc viết tài liệu và chia sẻ cho người khác
+* Lười biếng, lười biếng và lười biếng
+* Thuật toán, mã hóa, các thứ về bảo mật
+* Sử dụng command-line, shell một cách thành thạo
 
 ## 3. Tìm tài liệu và giải quyết vấn đề như thế nào?
 
 Liệt kê một số nơi mà bạn có thể tìm được câu trả lời cho những vấn đề của bạn
 
-    * Trước tiên, chính là nơi bạn viết, Wiki này hoặc chính blog này 
-    * Google, google và google
-    * Loạt Website hỏi đáp như [[http://stackoverflow.com|http://stackoverflow.com]],
-	chuyên môn: DBA (MySQL) [[http://dba.stackexchange.com|http://dba.stackexchange.com]],
-	Server/SA [[http://serverfault.com|http://serverfault.com]], [[http://superuser.com|http://superuser.com]]
-    * Các vấn đề chuyên sâu  trang chủ, trang docs, forum của các ứng dụng, giải
-	pháp, phần mềm đó
-    * [[http://github.com|http://github.com]] -> có rất nhiều dự án thú vị hoặc
-	các list công nghệ rất thú vị ví dụ [[https://github.com/kahun/awesome-sysadmin|awesome-sysadmin]]
-    * Các trang dạng QA như: [[https://news.ycombinator.com/|https://news.ycombinator.com/]] 
-	-> nhiều công nghệ mới, [[http://tinsang.net/|http://tinsang.net/]], hoặc Twitter -> twitter đặc biệt hữu ích khi tìm hiểu về trend của giới công nghệ hiện nay.
+* Trước tiên, chính là nơi bạn viết, Wiki này hoặc chính blog này 
+* Google, google và google
+* Loạt Website hỏi đáp như [http://stackoverflow.com](http://stackoverflow.com)
+chuyên môn: DBA (MySQL) [http://dba.stackexchange.com](http://dba.stackexchange.com),
+Server/SA [http://serverfault.com](http://serverfault.com), [http://superuser.com](http://superuser.com)
+* Các vấn đề chuyên sâu  trang chủ, trang docs, forum của các ứng dụng, giải
+pháp, phần mềm đó
+* [http://github.com](http://github.com) -> có rất nhiều dự án thú vị hoặc
+các list công nghệ rất thú vị ví dụ [https://github.com/kahun/awesome-sysadmin](awesome-sysadmin)
+* Các trang dạng QA như: [https://news.ycombinator.com/[(https://news.ycombinator.com/)
+-> nhiều công nghệ mới, [http://tinsang.net/](http://tinsang.net/), hoặc Twitter -> twitter đặc biệt hữu ích khi tìm hiểu về trend của giới công nghệ hiện nay.
 
 ## 4. A lazy sysadmin is the best sysadmin
 
-    * Rule #1: Viết script cho các công việc lặp đi lặp lại, một cách lười biếng thông minh giúp anh ta trở lên master khi sử dụng bash, sed, awk, grep…
-    * Rule #2: Backup everything, viết một script backup khi start một dự án, kiểm tra nó sau một khoảng thời gian để đảm bảo nó chạy đúng
-    * Rule #3: Command line master
-    * Rule #4: Document everything, từ cách cài đặt, cách sửa lỗi, cách triển khai, các vấn đề trong tương lai, những thứ mà có thể chia sẻ cho team.
-    * Rule #5: Cấu hình mọi thứ với độ sẵn sàng cao
-    * Rule #6: Chủ động trong mọi tình huống. Một sysadmin lười biếng không phải là một người luôn ngồi chơi khi rảnh rỗi. Anh ta ghét phải thức dậy lúc nửa đêm chỉ vì một lỗi rất nhỏ. Cái anh ta cần làm là dùng thời gian rảnh rỗi để nghiên cứu, để đặt một vài cảnh báo, để dự đoán rủi ro, để dự đoán các vấn đề, lỗi, sự tăng trưởng của hệ thống trong tương lai để có thể phản ứng trước khi lỗi, vấn đề xảy ra.
-    * Rule #7: Học từ sai lầm. Một sysadmin sẽ rất ghét phải lặp lại các sai lầm tương tự nhau. Chẳng ai muốn gặp phải các vấn đề không mông muốn. Nhưng một sysadmin giỏi là người khi gặp phải vấn đề bất ngờ, ngoài việc giải quyết nó nhanh chóng, anh ta CÂN dành thời gian để tìm hiểu tại sao lại xảy ra lỗi đó, nguyên nhân, cách khác phục, cách dự đoán, để đảm bảo lần sau sẽ không bao giờ lặp lại sai lầm đó nữa.
-    * Rule #8: Học công nghệ mới. Nếu team của bạn đang sử dụng svn, không có nghĩa là bạn không nên tìm hiểu git.
+* Rule #1: Viết script cho các công việc lặp đi lặp lại, một cách lười biếng thông minh giúp anh ta trở lên master khi sử dụng bash, sed, awk, grep…
+* Rule #2: Backup everything, viết một script backup khi start một dự án, kiểm tra nó sau một khoảng thời gian để đảm bảo nó chạy đúng
+* Rule #3: Command line master
+* Rule #4: Document everything, từ cách cài đặt, cách sửa lỗi, cách triển khai, các vấn đề trong tương lai, những thứ mà có thể chia sẻ cho team.
+* Rule #5: Cấu hình mọi thứ với độ sẵn sàng cao
+* Rule #6: Chủ động trong mọi tình huống. Một sysadmin lười biếng không phải là một người luôn ngồi chơi khi rảnh rỗi. Anh ta ghét phải thức dậy lúc nửa đêm chỉ vì một lỗi rất nhỏ. Cái anh ta cần làm là dùng thời gian rảnh rỗi để nghiên cứu, để đặt một vài cảnh báo, để dự đoán rủi ro, để dự đoán các vấn đề, lỗi, sự tăng trưởng của hệ thống trong tương lai để có thể phản ứng trước khi lỗi, vấn đề xảy ra.
+* Rule #7: Học từ sai lầm. Một sysadmin sẽ rất ghét phải lặp lại các sai lầm tương tự nhau. Chẳng ai muốn gặp phải các vấn đề không mông muốn. Nhưng một sysadmin giỏi là người khi gặp phải vấn đề bất ngờ, ngoài việc giải quyết nó nhanh chóng, anh ta CÂN dành thời gian để tìm hiểu tại sao lại xảy ra lỗi đó, nguyên nhân, cách khác phục, cách dự đoán, để đảm bảo lần sau sẽ không bao giờ lặp lại sai lầm đó nữa.
+* Rule #8: Học công nghệ mới. Nếu team của bạn đang sử dụng svn, không có nghĩa là bạn không nên tìm hiểu git.
 
 ## 5. Nguyên tắc tối thiểu
 
@@ -70,15 +70,15 @@ Một nguyên tắc tôi học được từ một cao thủ của diễn đàn 
 
 Nguyên tắc này giúp đạt ít nhất 3 giá trị sau
 
-    * Về hệ thống, đạt hiệu suất
-    * Về bảo mật, giảm thiểu rủ ro về các vấn đề bảo mật, exploit phần mềm
-    * Về con người, quản trị dễ dàng
+* Về hệ thống, đạt hiệu suất
+* Về bảo mật, giảm thiểu rủ ro về các vấn đề bảo mật, exploit phần mềm
+* Về con người, quản trị dễ dàng
 
 Giải trình nguyên tắc này ntn?
 
-    * Cái gì cần thiết thì cài, cái gì không cần thiết thì không cài
-    * Cài gì cần thiết thì cấu hình, cái gì không cần thiết thì không cần cấu hình
-    * Dịch vụ nào cần thiết thì mở, dịch vụ nào không cần thiết thì tắt hoặc xóa đi
+* Cái gì cần thiết thì cài, cái gì không cần thiết thì không cài
+* Cài gì cần thiết thì cấu hình, cái gì không cần thiết thì không cần cấu hình
+* Dịch vụ nào cần thiết thì mở, dịch vụ nào không cần thiết thì tắt hoặc xóa đi
 
 Ví dụ về nguyên tắc tối thiểu
 
@@ -96,15 +96,15 @@ Iptables
 
 Đối với iptables thì nguyên tắc tối thiểu thể hiện ở phương diện Deny All, Allow Select. Ví dụ đối với webserver thì Drop tất cả các port, chỉ open duy nhất port http (80), có thể open port ssh (22) cho một lớp mạng local.
 
-====== 6. Mindset về bảo mật ======
+## 6. Mindset về bảo mật
 
 Người làm SA không phải là một chuyên gia bảo mật (vì lĩnh vực này cực kỳ rộng) nhưng anh ta có thể biết một vài khía cạnh của bảo mật, điển hình nhất là vận hành các hệ thống Firewall, honeypot, IDS, IPS, các giao thức bảo mật, một số hình thức tấn công, khai thác lỗi phần mềm…
 
-Anh ta cần phải "tỉnh táo" và chống lại các cám dỗ về **"sự tiện lợi"**, vì sự tiện lợi chính là kẻ đối đầu với các nguyên tắc bảo mật. Có một nguyên tắc như sau:
+Anh ta cần phải "tỉnh táo" và chống lại các cám dỗ về __"sự tiện lợi"__, vì sự tiện lợi chính là kẻ đối đầu với các nguyên tắc bảo mật. Có một nguyên tắc như sau:
 
-    * Bảo mật đi kèm với nguyên tắc tối thiểu
-    * Bảo mật chống lại sự tiện lợi của user
-    * Nếu muốn tiện lợi, dễ dàng thì KHÔNG THỂ bảo mật
+* Bảo mật đi kèm với nguyên tắc tối thiểu
+* Bảo mật chống lại sự tiện lợi của user
+* Nếu muốn tiện lợi, dễ dàng thì KHÔNG THỂ bảo mật
 
 Ví dụ:
 
@@ -130,14 +130,15 @@ Hưm, tôi là user, máy tính của tôi tôi muốn cài những gì tôi mu�
 
 Hưm, anh đặt cái password wifi gì đâu mà khó nhớ và phức tạp thế, lại còn dùng WPA2 nữa chứ, sao ko dùng WEP cho "nhanh" → m(
 
-====== 7. Vui nhưng không vui ======
+## 7. Vui nhưng không vui
 
-Trang này có rất nhiều gif vui liên quan đến công việc của Dev, SysAdm, DevOps [[http://devopsreactions.tumblr.com|http://devopsreactions.tumblr.com]]
+Trang này có rất nhiều gif vui liên quan đến công việc của Dev, SysAdm, DevOps [http://devopsreactions.tumblr.com](http://devopsreactions.tumblr.com)
 
 Senior vs junior sysadmin during an outage
 
-{{  :system:sysadmin.gif  }}
 
-The way of solving most problems {{  :system:solve.gif  }}
 
-Friday deployments (…and leaving afterwards) {{  :system:friday-deployments.gif  }}
+The way of solving most problems 
+
+
+Friday deployments (…and leaving afterwards) 
