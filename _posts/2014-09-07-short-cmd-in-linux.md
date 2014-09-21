@@ -88,3 +88,26 @@ Có một đống các thư mục tên `log` nằm rải rác trong các thư m�
 ```bash
 	~$ find . -name "log" -exec rm -rf {} \;
 ```
+
+### Kill một session đang login
+
+Ví dụ bạn lên DataCenter, login vào và quên logout ra, bạn remote vào và thấy kết quả như sau
+
+```bash
+	~$ w
+	23:58:07 up  6:23,  2 users,  load average: 0.00, 0.02, 0.01
+	USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+	root     tty1     -                17:35    5:47m  0.19s  0.19s -bash
+	root     pts/1    10.100.9.1       18:12    0.00s  0.03s  0.02s w
+```
+
+Để ý thì thấy tty1 chính là session login ở trên, giờ cần kill nó đi để lỡ ai có cắm Monitor vào cũng ko
+thể login được
+
+```bash
+	~$ ps -fu root| grep [b]ash
+	root      1218  1195  0 17:35 tty1     00:00:00 -bash
+	root     13123 13120  0 18:12 pts/1    00:00:00 -bash
+``
+
+Và biết `pid` của session đó là `1218` và giờ chỉ cần `~$ kill -9 1218` là xong
