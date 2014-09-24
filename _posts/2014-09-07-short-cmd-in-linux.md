@@ -111,3 +111,15 @@ thể login được
 ```
 
 Và biết `pid` của session đó là `1218` và giờ chỉ cần `~$ kill -9 1218` là xong
+
+### Lọc bằng grep, AND, OR
+
+OR
+```bash
+	~$  cat access.log | grep '115.78.228.58\|118.69.34.213
+```
+
+AND
+```bash
+	~$  cat access.log | grep 115.78.228.58 | grep 118.69.34.213
+```
