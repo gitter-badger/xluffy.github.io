@@ -58,7 +58,8 @@ như dưới để backup cơ sở dữ liệu
 ```
 
 Với cách này bạn để lộ password của user root, và mỗi lần backup sẽ đè lại file cũ nên 
-bạn có thể làm tốt hơn một xíu bằng cách sửa lại như sau
+bạn có thể làm tốt hơn một xíu bằng cách sửa lại như sau. Cách này giúp bạn tạo ra các
+bản backup riêng biệt cho từng ngày.
 
 ```bash
 	~$ crontab -e
@@ -115,9 +116,9 @@ Dưới đây là một shellscript nhỏ, vô cùng đơn giản
 
 Shell-script này bản chất với 2 crontab phía trên chỉ có 3 điểm khác
 
-* Thay vì phân biệt bằng ngày, giờ tạo thư mục là ngày và có kiểm 
+* Thay vì gán ngày giờ vào cuối file thì ta tạo thư mục là ngày và có kiểm 
 tra thư mục đó có tồn tại hay không (xem ở dưới)
-* Vòng lặp backup từng schema ra file riêng
+* Vòng lặp `for` backup từng schema ra file riêng.
 * Lệnh `find` dưới cùng có tác dụng tìm trong $ROOT, loại file là d (thư 
 mục) nếu có thời gian modify +15 (15 ngày) thì xóa đi. Nghĩa là chỉ dữ 
 lại cơ sở dữ liệu trong vòng nửa tháng
