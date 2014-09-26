@@ -25,19 +25,19 @@ khoảng thời gian bạn cho là an toàn.
 Backup CSDL MySQL:
 
 Có nhiều cách để backup MySQL, phổ biến và dễ dùng nhất là `mysqldump`, ngoài ra
-có rất nhiều công cụ khác như `mysqlhotcopy`, MySQL backup enterprise - trả tiền
-hay `xtrabackup`, các công cụ này có những ưu và nhược điểm riêng. Ở đây chủ yếu 
-nói về `mysqldump` và `xtrabackup`
+có rất nhiều công cụ khác như `mysqlhotcopy`, MySQL Enterprise Backup phiên bản 
+phải trả tiền hay `xtrabackup`, các công cụ này có những ưu và nhược điểm riêng. 
+Ở đây chủ yếu nói về `mysqldump` và `xtrabackup`
 
 * Nếu csdl của bạn lớn, việc backup sẽ tốn nhiều thời gian
 * Nếu bạn dùng `mysqldump` thì cũng nên biết là trong quá trình dump dữ liệu sẽ
-bị lock row hoặc lock table tùy loại storage engine. User của bạn sẽ không thể
+bị lock row hoặc lock table tùy loại Storage Engine. User của bạn sẽ không thể
 cập nhật gì trên website của bạn. Nếu dữ liệu của bạn nhỏ, backup tốn 1-2ph thì 
 không vấn đề gì, những nếu bạn tốn đến tầm 1h thì đó là chuyện rất LỚN.
 * Ưu điểm của `mysqldump` là dữ liệu xuất ra nhỏ, có thể restore cho mọi version,
 và có thể restore và nhiều schema khác nhau
 * Tốt nhất là chạy backup dữ liệu tự động và làm vào ban đêm, lập lịch bằng cách 
-sử dụng `crontab`
+sử dụng `crontab` để tránh ảnh hưởng đến user của bạn.
 
 Crontab là một công cụ trên Linux cho phép đặt các lịch thực thi một cái gì đó
 tự động. Ví dụ
@@ -48,6 +48,39 @@ tự động. Ví dụ
 ```
 
 Có nghĩa là 2h00 mỗi đêm, sẽ chạy shell-script backupdb
+
+Đơn giản nhất và không phải quan tâm gì nhiều, bạn có thể chỉ cần đặt một crontab
+như dưới để backup cơ sở dữ liệu
+
+```bash
+	~$ crontab -e
+	0 2 * * * /usr/bin/mysqldump -uroot -p'passratngan' github > /home/backup/github.sql
+```
+
+Với cách này bạn để lộ password của user root, và mỗi lần backup sẽ đè lại file cũ nên 
+bạn có thể làm tốt hơn một xíu bằng cách sửa lại như sau
+
+```bash
+	~$ crontab -e
+	0 2 * * * /usr/bin/mysqldump -uroot -p'passratngan' github > /home/backup/github_$(date +"%Y-%m-%d").sql
+	~$ ls -larth /home/backup/
+	github__2014-09-26.sql
+	github__2014-09-27.sql
+	github__2014-09-28.sql
+```
+
+Hoặc làm tốt hơn nữa bằng cách nén dữ liệu lại cho nhỏ bớt.
+
+```bash
+	~$ crontab -e
+	0 2 * * * /usr/bin/mysqldump -uroot -p'passratngan' github | gzip > /home/backup/github_$(date +"%Y-%m-%d").sql.gz
+	~$ ls -larth /home/backup/
+	-rw-r--r--   1 root root  4.9K Sep 26 20:52 github__2014-09-26.sql.gz
+	-rw-r--r--   1 root root   43K Sep 26 20:52 github__2014-09-26.sql
+```
+
+
+
 
 
 
