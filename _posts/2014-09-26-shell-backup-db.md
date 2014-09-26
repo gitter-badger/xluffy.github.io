@@ -16,11 +16,11 @@ bạn có thể làm mất thông tin khách hàng, tài chính ảnh hưởng �
 * Nếu bạn backup dữ liệu và đặt dữ liệu đó trên chính server đó -> nếu server 
 đó bị hỏng ổ cứng -> việc backup coi như vô nghĩa
 * Thường có 2 loại backup, fullbackup và incremental backup. Full backup nghĩa 
-là mỗi lần backup sẽ backup *tất cả mọi thứ*. Incremental backup nghĩa là backup
+là mỗi lần backup sẽ backup **tất cả mọi thứ**. Incremental backup nghĩa là backup
 gia tăng, lần đầu thì fullbackup, các lần sau chỉ backup những phần dữ liệu thay 
 đổi.
 * Giữ lại quá nhiều bản backup sẽ nhanh chóng làm đầy đĩa, nên giữ lại trong một 
-khoảng thời gian bạn cho là an toàn.
+khoảng thời gian bạn cho là an toàn, các bản backup cũ hơn thì xóa đi.
 
 Backup CSDL MySQL:
 
@@ -47,7 +47,7 @@ tự động. Ví dụ
 	0 2 * * * /home/xluffy/backupdb.sh
 ```
 
-Có nghĩa là 2h00 mỗi đêm, sẽ chạy shell-script backupdb
+Có nghĩa là 2h00 mỗi đêm, sẽ chạy shell-script backupdb.sh
 
 Đơn giản nhất và không phải quan tâm gì nhiều, bạn có thể chỉ cần đặt một crontab
 như dưới để backup cơ sở dữ liệu
