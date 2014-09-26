@@ -79,6 +79,79 @@ Hoặc làm tốt hơn nữa bằng cách nén dữ liệu lại cho nhỏ bớt
 	-rw-r--r--   1 root root   43K Sep 26 20:52 github_2014-09-26.sql
 ```
 
+Về cơ bản như vậy là đủ cho việc backup dữ liệu, nhất là các cơ sở dữ liệu 
+có kích thước bé thì chỉ cần như vậy.
+
+Dưới đây là một shellscript nhỏ, vô cùng đơn giản
+
+```bash
+	#!/bin/bash
+	#Simple shell-script backup
+
+	MyUSER="root"     
+	MyPASS="passratngan"
+	 
+	MYSQL="$(which mysql)"
+	MYSQLDUMP="$(which mysqldump)"
+
+	ROOT="/home/backup/custom"
+
+	DATE=`date +"%Y-%m-%d"`
+	BKDIR="$ROOT/$DATE"
+
+	DBS="github wordpress drupal"
+
+	if [ ! -d "$BKDIR" ]; then
+		mkdir -p $BKDIR
+	fi
+	 
+	for db in $DBS
+	do
+		$MYSQLDUMP -u$MyUSER -p$MyPASS $db | gzip > $BKDIR/$db.sql.gz
+	done
+
+	find $ROOT -maxdepth 1 -mindepth 1 -type d -mtime +15 -exec rm -rf {} \;
+```
+
+Shell-script này bản chất với 2 crontab phía trên chỉ có 3 điểm khác
+
+* Thay vì phân biệt bằng ngày, giờ tạo thư mục là ngày và có kiểm 
+tra thư mục đó có tồn tại hay không (xem ở dưới)
+* Vòng lặp backup từng schema ra file riêng
+* Lệnh `find` dưới cùng có tác dụng tìm trong $ROOT, loại file là d (thư 
+mục) nếu có thời gian modify +15 (15 ngày) thì xóa đi. Nghĩa là chỉ dữ 
+lại cơ sở dữ liệu trong vòng nửa tháng
+
+```bash
+	~$ ls -larht /home/backup/custom
+	drwxr-xr-x 2 root root 4096 Sep 10 00:00 2014-09-10
+	drwxr-xr-x 2 root root 4096 Sep 11 00:00 2014-09-11
+	drwxr-xr-x 2 root root 4096 Sep 12 00:00 2014-09-12
+	drwxr-xr-x 2 root root 4096 Sep 13 00:00 2014-09-13
+	drwxr-xr-x 2 root root 4096 Sep 14 00:00 2014-09-14
+	drwxr-xr-x 2 root root 4096 Sep 15 00:00 2014-09-15
+	drwxr-xr-x 2 root root 4096 Sep 16 00:00 2014-09-16
+	drwxr-xr-x 2 root root 4096 Sep 17 00:00 2014-09-17
+	drwxr-xr-x 2 root root 4096 Sep 18 00:00 2014-09-18
+	drwxr-xr-x 2 root root 4096 Sep 19 00:00 2014-09-19
+	drwxr-xr-x 2 root root 4096 Sep 20 00:00 2014-09-20
+	drwxr-xr-x 2 root root 4096 Sep 21 00:00 2014-09-21
+	drwxr-xr-x 2 root root 4096 Sep 22 00:00 2014-09-22
+	drwxr-xr-x 2 root root 4096 Sep 23 00:00 2014-09-23
+	drwxr-xr-x 2 root root 4096 Sep 24 00:00 2014-09-24
+	drwxr-xr-x 2 root root 4096 Sep 25 00:00 2014-09-25
+	drwxr-xr-x 2 root root 4096 Sep 26 00:00 2014-09-26
+```
+
+Sau đó bạn lưu shell-script trên thành 1 file dạng backupdb.sh và bỏ vào
+`/home/backup/bin` hoặc ở đâu tùy bạn và thiết lập một crontab như sau
+
+```bash
+	~$ crontab -e
+	0 2 * * * /home/backup/bin/backupdb.sh 
+```
+
+
 
 
 
