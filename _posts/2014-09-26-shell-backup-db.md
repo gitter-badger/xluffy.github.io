@@ -19,8 +19,8 @@ bạn có thể làm mất thông tin khách hàng, tài chính ảnh hưởng �
 là mỗi lần backup sẽ backup *tất cả mọi thứ*. Incremental backup nghĩa là backup
 gia tăng, lần đầu thì fullbackup, các lần sau chỉ backup những phần dữ liệu thay 
 đổi.
-* Giữ lại quá nhiều bản backup sẽ nhanh chóng làm đầy đĩa, giữ lại trong một khoảng
-thời gian bạn cho là an toàn.
+* Giữ lại quá nhiều bản backup sẽ nhanh chóng làm đầy đĩa, nên giữ lại trong một 
+khoảng thời gian bạn cho là an toàn.
 
 Backup CSDL MySQL:
 
