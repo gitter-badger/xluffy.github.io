@@ -110,7 +110,9 @@ pre {
    white-space: pre-wrap;
    word-break: break-all;
    word-wrap: break-word;
-   background-color: #383838;
+   background-color: #FFFFFF;
+   border: 1px solid #C08B8B;
+}
 }
 pre code {
    padding: 0;
