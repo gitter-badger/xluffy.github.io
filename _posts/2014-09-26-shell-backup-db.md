@@ -64,9 +64,9 @@ bạn có thể làm tốt hơn một xíu bằng cách sửa lại như sau
 	~$ crontab -e
 	0 2 * * * /usr/bin/mysqldump -uroot -p'passratngan' github > /home/backup/github_$(date +"%Y-%m-%d").sql
 	~$ ls -larth /home/backup/
-	github__2014-09-26.sql
-	github__2014-09-27.sql
-	github__2014-09-28.sql
+	github_2014-09-26.sql
+	github_2014-09-27.sql
+	github_2014-09-28.sql
 ```
 
 Hoặc làm tốt hơn nữa bằng cách nén dữ liệu lại cho nhỏ bớt.
@@ -75,8 +75,8 @@ Hoặc làm tốt hơn nữa bằng cách nén dữ liệu lại cho nhỏ bớt
 	~$ crontab -e
 	0 2 * * * /usr/bin/mysqldump -uroot -p'passratngan' github | gzip > /home/backup/github_$(date +"%Y-%m-%d").sql.gz
 	~$ ls -larth /home/backup/
-	-rw-r--r--   1 root root  4.9K Sep 26 20:52 github__2014-09-26.sql.gz
-	-rw-r--r--   1 root root   43K Sep 26 20:52 github__2014-09-26.sql
+	-rw-r--r--   1 root root  4.9K Sep 26 20:52 github_2014-09-26.sql.gz
+	-rw-r--r--   1 root root   43K Sep 26 20:52 github_2014-09-26.sql
 ```
 
 
