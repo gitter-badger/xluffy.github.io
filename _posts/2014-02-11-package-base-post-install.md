@@ -22,7 +22,7 @@ Cài đặt repo Epel
 	~$ sudo rpm -Uvh epel-release-6*.rpm
 ```
 
-Cai dat repo Remi
+Cài đặt repo remi
 
 ```
 	~$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
