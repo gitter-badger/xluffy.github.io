@@ -32,7 +32,7 @@ Cai dat repo Remi
 Các gói base:
 
 ```
-	~$ yum install systemtool system-config-network-tui vim libtool -y 	
+	~$ yum install setuptool system-config-network-tui vim libtool -y 	
 	~$ yum install make autoconf automake htop wget curl gcc gcc-c++ -y
 ```
 
