@@ -15,18 +15,19 @@ các gói phần mềm khác.
 
 ### Giải quyết
 
-Cài đặt repo Epel
+Cài repo epel, remi, nginx, percona
 
-``` 
-	~$ wget http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm 	
-	~$ sudo rpm -Uvh epel-release-6*.rpm
+```bash
+	~$ rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+	~$ rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+	~$ rpm -Uvh http://nginx.org/packages/rhel/6/noarch/RPMS/nginx-release-rhel-6-0.el6.ngx.noarch.rpm
+	~$ rpm -Uvh http://www.percona.com/downloads/percona-release/percona-release-0.0-1.x86_64.rpm
 ```
 
-Cài đặt repo remi
+Enable repo remi cho php55
 
-```
-	~$ wget http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
-	~$ rpm -Uvh remi-release-5*.rpm
+```bash
+	~$ sed -i '/\[remi\]/,/^ *\[/ s/enabled=0/enabled=1/' /etc/yum.repos.d/remi.repo
 ```
 
 Các gói base:
