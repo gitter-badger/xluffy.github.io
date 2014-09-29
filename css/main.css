@@ -96,7 +96,7 @@ pre {
 code {
    padding: .25em .5em;
    font-size: 80%;
-   color: #ff0000;
+   color: #555555;
    background-color: transparent;
    border-radius: 3px;
 }
@@ -110,7 +110,7 @@ pre {
    white-space: pre-wrap;
    word-break: break-all;
    word-wrap: break-word;
-   background-color: #000000;
+   background-color: #FFFFFF;
    border: 1px solid #C08B8B;
 }
 }
