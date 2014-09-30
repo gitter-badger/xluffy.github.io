@@ -41,7 +41,9 @@ thể chạy một lệnh mà không lưu lại history bằng cách thêm một
 
 ### Tạo một file với kích thước lớn
 
-Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra, cách đơn giản là làm sao đẩy dữ liệu vào đủ 10GB, hoặc tải 1 bộ film 10GB. Nhưng các cách đó thì quá lâu, đơn giản ta có thể sử dụng lệnh sau để tạo ra các file có kích thước lớn.
+Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra, cách đơn giản là làm 
+sao đẩy dữ liệu vào đủ 10GB, hoặc tải 1 bộ film 10GB. Nhưng các cách đó thì quá 
+lâu, đơn giản ta có thể sử dụng lệnh sau để tạo ra các file có kích thước lớn.
 
 ```bash
 	~$ truncate -s 10GB bigfile.a
@@ -73,7 +75,8 @@ Ví dụ bạn cần tạo một file với kích thước 10GB để kiểm tra
 	~$ grep -v "^#" /etc/ssh/sshd_config | sed '/^$/d'
 ```
 
-Diễn giải: lệnh sed sẽ tìm các dòng bắt đầu `^` và kết thúc `$` không có ký tự nào rồi xóa `d`
+Diễn giải: lệnh sed sẽ tìm các dòng bắt đầu `^` và kết thúc `$` không có ký tự nào
+ rồi xóa `d`
 
 ### Find
 
@@ -91,7 +94,8 @@ Có một đống các thư mục tên `log` nằm rải rác trong các thư m�
 
 ### Kill một session đang login
 
-Ví dụ bạn lên DataCenter, login vào và quên logout ra, bạn remote vào và thấy kết quả như sau
+Ví dụ bạn lên DataCenter, login vào và quên logout ra, bạn remote vào và thấy kết 
+quả như sau
 
 ```bash
 	~$ w
@@ -101,8 +105,8 @@ Ví dụ bạn lên DataCenter, login vào và quên logout ra, bạn remote và
 	root     pts/1    10.100.9.1       18:12    0.00s  0.03s  0.02s w
 ```
 
-Để ý thì thấy tty1 chính là session login ở trên, giờ cần kill nó đi để lỡ ai có cắm Monitor vào cũng ko
-thể login được
+Để ý thì thấy tty1 chính là session login ở trên, giờ cần kill nó đi để lỡ ai có 
+cắm Monitor vào cũng ko thể login được
 
 ```bash
 	~$ ps -fu root| grep [b]ash
@@ -122,4 +126,26 @@ OR
 AND
 ```bash
 	~$  cat access.log | grep 115.78.228.58 | grep 118.69.34.213
+```
+
+### Umount lazy
+
+Bạn muốn umount như nó cứ báo
+
+```bash
+	~$ umount /mnt
+	umount.nfs: /mnt: device is busy
+	umount.nfs: /mnt: device is busy
+```
+
+```bash
+	lsof | grep /mnt/                                                                                                                                         
+	bash      16625       xluffy  cwd       DIR               0,20       4096  109314049 /mnt/abc (x.x.x.x:/mnt)
+
+```
+
+Lười quá
+
+```bash
+	~$ umount -f -l /mnt
 ```
