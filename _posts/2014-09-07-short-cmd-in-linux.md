@@ -139,7 +139,7 @@ Bạn muốn umount như nó cứ báo
 ```
 
 ```bash
-	lsof | grep /mnt/                                                                                                                                         
+	~$ lsof | grep /mnt/                                                                                                                                         
 	bash      16625       xluffy  cwd       DIR               0,20       4096  109314049 /mnt/abc (x.x.x.x:/mnt)
 ```
 
